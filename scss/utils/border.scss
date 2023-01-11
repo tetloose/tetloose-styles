@@ -1,0 +1,8 @@
+[class*=u-border-] {
+	border-style: solid;
+	border-color: color(global, border);
+}
+
+.u-border-t {
+	border-width: 2px 0 0;
+}
