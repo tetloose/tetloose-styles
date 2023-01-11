@@ -1,5 +1,3 @@
-@use 'sass:string';
-
 @function vars($name, $variant) {
 	@if $variant {
 		@return map-get(map-get($vars, $name), $variant);
