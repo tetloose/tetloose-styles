@@ -10,7 +10,7 @@ Import `@import '../path-to-settings/settings/index.scss'` in a component to mak
 
 CSS methodologie Based on BEM + SMACSS with Utility Classes.
 
-## Reset
+## Reset (optional)
 
 - Box Sizing
 - Form Normalize
@@ -39,3 +39,11 @@ CSS methodologie Based on BEM + SMACSS with Utility Classes.
 - Container
 - Row / Col
 - Actions
+
+# Print styles
+
+`print.scss` used to generate a print style sheet.
+
+# Tinymce
+
+`tinymce.scss` used to generate a style sheet for tinymce editor. (Some CMS use this)
