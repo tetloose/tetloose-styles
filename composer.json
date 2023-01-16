@@ -1,6 +1,7 @@
 {
     "name": "tetloose/tetloose-styles",
-    "type": "wordpress-styles",
+    "type": "styles",
+    "version": "1.0.0",
     "authors": [
       {
         "name": "James Tetley",
