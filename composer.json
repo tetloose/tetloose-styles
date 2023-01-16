@@ -3,9 +3,9 @@
     "type": "styles",
     "version": "1.0.0",
     "authors": [
-      {
-        "name": "James Tetley",
-        "email": "tetloose@gmail.com"
-      }
+        {
+            "name": "James Tetley",
+            "email": "tetloose@gmail.com"
+        }
     ]
-  }
+}
