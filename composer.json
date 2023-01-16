@@ -1,0 +1,10 @@
+{
+    "name": "tetloose/tetloose-styles",
+    "type": "wordpress-styles",
+    "authors": [
+      {
+        "name": "James Tetley",
+        "email": "tetloose@gmail.com"
+      }
+    ]
+  }
