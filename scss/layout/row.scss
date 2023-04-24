@@ -8,20 +8,8 @@
 	margin-right: auto;
 	margin-left: auto;
 
-	&.is-justify-center {
-		justify-content: center;
-	}
-
-	&.is-align-center {
-		align-items: center;
-	}
-
-	&.is-algin-top {
-		align-items: flex-start;
-	}
-
-	&.is-algin-bottom {
-		align-items: flex-end;
+	&.is-fullwidth {
+		max-width: 100%;
 	}
 
 	&.no-gutter {
@@ -40,24 +28,6 @@
 
 		&.no-overflow {
 			overflow: hidden;
-		}
-
-		&.text-align-left {
-			text-align: left;
-		}
-
-		&.text-align-right {
-			text-align: right;
-		}
-
-		&.text-align-center {
-			text-align: center;
-		}
-
-		&.text-align-centered {
-			display: block;
-			margin-right: auto;
-			margin-left: auto;
 		}
 
 		&.is-half {
@@ -85,14 +55,6 @@
 			padding-left: 0;
 		}
 
-		&.no-gutter-right {
-			padding-right: 0;
-		}
-
-		&.no-gutter-left {
-			padding-left: 0;
-		}
-
 		@for $i from 1 through 5 {
 			$brakepoint: vars(brakepoint, xxlrg);
 			$selecter: 'xxlrg';
@@ -103,10 +65,10 @@
 			} @else if $i == 2 {
 				$brakepoint: vars(brakepoint, med);
 				$selecter: 'med';
-			} @else if $i == 2 {
+			} @else if $i == 3 {
 				$brakepoint: vars(brakepoint, lrg);
 				$selecter: 'lrg';
-			} @else if $i == 2 {
+			} @else if $i == 4 {
 				$brakepoint: vars(brakepoint, xlrg);
 				$selecter: 'xlrg';
 			}

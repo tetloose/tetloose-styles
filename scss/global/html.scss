@@ -1,14 +1,13 @@
 html {
 	min-height: vars(vh, fullscreen);
+	visibility: visible;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background-color: color(global, light);
-	color: color(global, dark);
 	line-height: 1.5;
 	text-rendering: optimizespeed;
 
 	@include f-body;
-	@include f-regular;
+	@include f-body-regular;
 	@include font-smoothing;
 	@include fluid-type(vars(brakepoint, sml), vars(layout, maxwidth), vars(type, sml), vars(type, lrg));
 
@@ -19,5 +18,15 @@ html {
 		body {
 			overflow: hidden;
 		}
+	}
+}
+
+body {
+	@include mq(vars(brakepoint, med), max-width) {
+		padding-top: rem(80px);
+	}
+
+	@include mq(vars(brakepoint, med)) {
+		padding-top: rem(120px);
 	}
 }

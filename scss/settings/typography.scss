@@ -3,7 +3,6 @@
 	line-height: 1.2;
 
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-h2 {
@@ -11,7 +10,6 @@
 	line-height: 1.2;
 
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-h3 {
@@ -19,7 +17,6 @@
 	line-height: 1.2;
 
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-h4 {
@@ -27,7 +24,6 @@
 	line-height: 1.2;
 
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-h5 {
@@ -35,7 +31,6 @@
 	line-height: 1.3;
 
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-h6 {
@@ -43,7 +38,6 @@
 	line-height: 1.3;
 
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-small {
@@ -55,15 +49,15 @@
 }
 
 @mixin type-btn {
-	font-size: rem(vars(type, med));
+	font-size: rem(vars(type, sml));
 
-	@include f-uppercase;
 	@include f-heading;
-	@include f-bold;
 }
 
 @mixin type-label {
 	font-size: rem(vars(type, med));
+}
 
-	@include f-bold;
+@mixin type-icon {
+	font-size: rem(vars(type, lrg));
 }
