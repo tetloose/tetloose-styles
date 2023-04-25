@@ -10,31 +10,6 @@ Import `@import '../path-to-settings/settings/index.scss'` in a component to mak
 
 CSS methodologie Based on BEM + SMACSS with Utility Classes.
 
-## CSS Colours and Fonts
-
-Add this to your css file / head, the values will be passed into the scss.
-
-```
-:root {
-    --f-body: 'Roboto Mono', monospace;
-    --f-body-light: 400;
-    --f-body-regular: 400;
-    --f-body-medium: 700;
-    --f-body-bold: 700;
-    --f-heading: 'Roboto Mono', monospace;
-    --f-heading-light: 400;
-    --f-heading-regular: 400;
-    --f-heading-medium: 700;
-    --f-heading-bold: 700;
-    --light: #ffffff;
-    --dark: #010101;
-    --color-1: #d0fd80;
-    --color-2: #fe557e;
-    --color-3: #590d82;
-    --color-4: #94c5da;
-}
-```
-
 ## Reset (optional)
 
 - Box Sizing
@@ -69,3 +44,54 @@ Add this to your css file / head, the values will be passed into the scss.
 # Tinymce
 
 `tinymce.scss` used to generate a style sheet for tinymce editor. (Some CMS use this)
+
+# Colours & Fonts
+
+- Color vars are located `scss/settings/colors.scss`.
+- Font vars are located `scss/settings/fonts.scss`.
+
+These rely on CSS variables that are injected into the head via a CMS / Application.
+
+They can be overriden with static values or you can add this to the SCSS / Head `<style>` tag.
+
+```
+:root {
+    --f-body: 'Roboto Mono', monospace;
+    --f-body-light: 400;
+    --f-body-regular: 400;
+    --f-body-medium: 700;
+    --f-body-bold: 700;
+    --f-heading: 'Roboto Mono', monospace;
+    --f-heading-light: 400;
+    --f-heading-regular: 400;
+    --f-heading-medium: 700;
+    --f-heading-bold: 700;
+    --light: #ffffff;
+    --dark: #010101;
+    --color-1: #d0fd80;
+    --color-2: #fe557e;
+    --color-3: #590d82;
+    --color-4: #94c5da;
+}
+```
+
+These values will be picked up in the SCSS.
+
+# Icons
+
+Build an icon pack using [icomoon.io](https://icomoon.io/), download your icon pack.
+
+## Process
+
+1. Extract the zip
+2. Rename the font files to **icons.{svg,ttf,woff}**
+
+Place `selection.json` and `icons.{svg,ttf,woff}` into the folder `icons`. Copy values from the generated CSS, replace line **13** to **72** in `scss/utils/icons.scss` with copied CSS.
+
+## MARKUP
+
+`<i class="u-icon-arrow-left"><i>`
+
+## Editing
+
+Upload `selection.json` to [icomoon.io](https://icomoon.io/), edit your icons, repeate the above process.
