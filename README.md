@@ -45,6 +45,10 @@ CSS methodologie Based on BEM + SMACSS with Utility Classes.
 
 `tinymce.scss` used to generate a style sheet for tinymce editor. (Some CMS use this)
 
+# Wordpress
+
+`wordpress.scss` used to generate a style sheet for Wordpress Login.
+
 # Colours & Fonts
 
 - Color vars are located `scss/settings/colors.scss`.
