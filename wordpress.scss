@@ -3,6 +3,7 @@ $login-light: #ededed;
 
 .login {
 	display: flex;
+    flex-direction: column;
 	position: relative;
 	align-items: center;
     background-color: $login-dark;
