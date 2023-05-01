@@ -8,7 +8,7 @@ Cherry pick + add utils, per project etc.
 
 Import `@import '../path-to-settings/settings/index.scss'` in a component to make use of variables + mixins.
 
-CSS methodologie Based on BEM + SMACSS with Utility Classes.
+CSS methodologies based on BEM + SMACSS with Utility Classes.
 
 ## Reset (optional)
 
@@ -49,14 +49,14 @@ CSS methodologie Based on BEM + SMACSS with Utility Classes.
 
 `wordpress.scss` used to generate a style sheet for Wordpress Login.
 
-# Colours & Fonts
+# Colors & Fonts
 
 - Color vars are located `scss/settings/colors.scss`.
 - Font vars are located `scss/settings/fonts.scss`.
 
 These rely on CSS variables that are injected into the head via a CMS / Application.
 
-They can be overriden with static values or you can add this to the SCSS / Head `<style>` tag.
+They can be overridden with static values or you can add this to the SCSS / Head `<style>` tag.
 
 ```
 :root {
@@ -98,4 +98,4 @@ Place `selection.json` and `icons.{svg,ttf,woff}` into the folder `icons`. Copy 
 
 ## Editing
 
-Upload `selection.json` to [icomoon.io](https://icomoon.io/), edit your icons, repeate the above process.
+Upload `selection.json` to [icomoon.io](https://icomoon.io/), edit your icons, repeat the above process.
