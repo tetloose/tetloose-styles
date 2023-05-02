@@ -38,7 +38,7 @@
 		text-align: center;
 		text-transform: uppercase;
 
-		@include mq(vars(brakepoint, med), max-width) {
+		@include mq(vars(breakpoint, med), max-width) {
 			top: 10%;
 			right: -(rem(4px));
 			letter-spacing: rem(3.5px);
@@ -46,7 +46,7 @@
 			@include type-small;
 		}
 
-		@include mq(vars(brakepoint, med)) {
+		@include mq(vars(breakpoint, med)) {
 			top: 14%;
 			right: -(rem(9px));
 			letter-spacing: rem(9px);

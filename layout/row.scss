@@ -56,24 +56,24 @@
 		}
 
 		@for $i from 1 through 5 {
-			$brakepoint: vars(brakepoint, xxlrg);
+			$breakpoint: vars(breakpoint, xxlrg);
 			$selecter: 'xxlrg';
 
 			@if $i == 1 {
-				$brakepoint: vars(brakepoint, sml);
+				$breakpoint: vars(breakpoint, sml);
 				$selecter: 'sml';
 			} @else if $i == 2 {
-				$brakepoint: vars(brakepoint, med);
+				$breakpoint: vars(breakpoint, med);
 				$selecter: 'med';
 			} @else if $i == 3 {
-				$brakepoint: vars(brakepoint, lrg);
+				$breakpoint: vars(breakpoint, lrg);
 				$selecter: 'lrg';
 			} @else if $i == 4 {
-				$brakepoint: vars(brakepoint, xlrg);
+				$breakpoint: vars(breakpoint, xlrg);
 				$selecter: 'xlrg';
 			}
 
-			@include mq($brakepoint) {
+			@include mq($breakpoint) {
 				&.is-#{$selecter}-half {
 					width: column-width(3, 1.5);
 				}

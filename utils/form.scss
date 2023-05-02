@@ -125,11 +125,11 @@
 		label {
 			position: relative;
 
-			@include mq(vars(brakepoint, lrg), max-width) {
+			@include mq(vars(breakpoint, lrg), max-width) {
 				padding-right: rem(spacing(1.5));
 			}
 
-			@include mq(vars(brakepoint, lrg)) {
+			@include mq(vars(breakpoint, lrg)) {
 				padding-right: rem(spacing(1));
 			}
 

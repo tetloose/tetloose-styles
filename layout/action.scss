@@ -1,7 +1,7 @@
 .l-action {
 	padding-top: rem(spacing(.5));
 
-	@include mq(vars(brakepoint, sml)) {
+	@include mq(vars(breakpoint, sml)) {
 		display: flex;
 		flex-wrap: nowrap;
 		margin-right: -(rem(spacing(.2)));
@@ -10,7 +10,7 @@
 	}
 
 	&.is-align-right {
-		@include mq(vars(brakepoint, sml)) {
+		@include mq(vars(breakpoint, sml)) {
 			justify-content: flex-end;
 		}
 	}
@@ -18,12 +18,12 @@
 	.u-btn {
 		margin-top: rem(spacing(.5));
 
-		@include mq(vars(brakepoint, sml), max-width) {
+		@include mq(vars(breakpoint, sml), max-width) {
 			display: block;
 			width: 100%;
 		}
 
-		@include mq(vars(brakepoint, sml)) {
+		@include mq(vars(breakpoint, sml)) {
 			margin-right: rem(spacing(.2));
 			margin-left: rem(spacing(.2));
 		}
