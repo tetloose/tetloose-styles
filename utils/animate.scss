@@ -1,5 +1,5 @@
 .u-animate-hide {
-    min-height: 100vh;
+	min-height: 100vh;
 	opacity: 0;
 	visibility: hidden;
 }
@@ -14,12 +14,12 @@
 
 @keyframes kf-fade-in {
 	from {
-        min-height: auto;
+		min-height: auto;
 		opacity: 0;
 	}
 
 	to {
-        min-height: auto;
+		min-height: auto;
 		opacity: 1;
 		visibility: visible;
 	}
