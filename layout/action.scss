@@ -15,6 +15,12 @@
 		}
 	}
 
+	&.is-align-center {
+		@include mq(vars(breakpoint, sml)) {
+			justify-content: center;
+		}
+	}
+
 	.u-btn {
 		margin-top: rem(spacing(.5));
 
