@@ -22,48 +22,6 @@
 	}
 }
 
-.u-animate-angle-open {
-	&::before,
-	&::after {
-		animation-name: kf-angle-open;
-		animation-duration: vars(transition, med);
-		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
-		animation-iteration-count: 1;
-		animation-fill-mode: forwards;
-	}
-}
-
-@keyframes kf-angle-open {
-	from {
-		height: 0;
-	}
-
-	to {
-		height: 50%;
-	}
-}
-
-.u-animate-angle-close {
-	&::before,
-	&::after {
-		animation-name: kf-angle-close;
-		animation-duration: vars(transition, med);
-		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
-		animation-iteration-count: 1;
-		animation-fill-mode: forwards;
-	}
-}
-
-@keyframes kf-angle-close {
-	from {
-		height: 50%;
-	}
-
-	to {
-		height: 0;
-	}
-}
-
 .u-animate-fade-out {
 	position: relative;
 	animation-name: kf-fade-out;

@@ -1,6 +1,4 @@
 .u-btn {
-	$btn: &;
-
 	position: relative;
 	padding: rem(spacing(.6) spacing(2));
 	background-color: transparent;
@@ -31,68 +29,6 @@
 		height: 100%;
 	}
 
-	&__title {
-		position: absolute;
-		left: 0;
-		background-color: transparent;
-		text-align: center;
-		text-transform: uppercase;
-
-		@include mq(vars(breakpoint, med), max-width) {
-			top: 10%;
-			right: -(rem(4px));
-			letter-spacing: rem(3.5px);
-
-			@include type-small;
-		}
-
-		@include mq(vars(breakpoint, med)) {
-			top: 14%;
-			right: -(rem(9px));
-			letter-spacing: rem(9px);
-
-			@include type-paragraph;
-		}
-	}
-
-	&__container {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 60%;
-		height: 35%;
-		transform: translate(-50%, -30%);
-	}
-
-	&__bar {
-		display: inline-block;
-		position: absolute;
-		right: 0;
-		left: 0;
-		width: auto;
-		height: rem(3px);
-		visibility: visible;
-
-		&:nth-child(1) {
-			top: 0;
-		}
-
-		&:nth-child(2),
-		&:nth-child(3) {
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		&:nth-child(4) {
-			bottom: 0;
-		}
-
-		@include transition-property(transform, background-color);
-		@include transition-duration(vars(transition, xfast));
-		@include transition-timing(ease-in-out);
-		@include hardware(true);
-	}
-
 	&[disabled] {
 		opacity: .4;
 
@@ -101,68 +37,36 @@
 
 	.btn-light & {
 		color: $light;
-
-		#{$btn}__bar {
-			background-color: $light;
-		}
 	}
 
 	.btn-dark & {
 		color: $dark;
-
-		#{$btn}__bar {
-			background-color: $dark;
-		}
 	}
 
 	.btn-color-1 & {
 		color: $color-1;
-
-		#{$btn}__bar {
-			background-color: $color-1;
-		}
 	}
 
 	.btn-color-2 & {
 		color: $color-2;
-
-		#{$btn}__bar {
-			background-color: $color-2;
-		}
 	}
 
 	.btn-color-3 & {
 		color: $color-3;
-
-		#{$btn}__bar {
-			background-color: $color-3;
-		}
 	}
 
 	.btn-color-4 & {
 		color: $color-4;
-
-		#{$btn}__bar {
-			background-color: $color-4;
-		}
 	}
 
 	.btn-hover-light & {
 		&:focus {
 			color: $light;
-
-			#{$btn}__bar {
-				background-color: $light;
-			}
 		}
 
 		@include mq-hover {
 			&:hover {
 				color: $light;
-
-				#{$btn}__bar {
-					background-color: $light;
-				}
 			}
 		}
 	}
@@ -170,19 +74,11 @@
 	.btn-hover-dark & {
 		&:focus {
 			color: $dark;
-
-			#{$btn}__bar {
-				background-color: $dark;
-			}
 		}
 
 		@include mq-hover {
 			&:hover {
 				color: $dark;
-
-				#{$btn}__bar {
-					background-color: $dark;
-				}
 			}
 		}
 	}
@@ -190,19 +86,11 @@
 	.btn-hover-color-1 & {
 		&:focus {
 			color: $color-1;
-
-			#{$btn}__bar {
-				background-color: $color-1;
-			}
 		}
 
 		@include mq-hover {
 			&:hover {
 				color: $color-1;
-
-				#{$btn}__bar {
-					background-color: $color-1;
-				}
 			}
 		}
 	}
@@ -210,19 +98,11 @@
 	.btn-hover-color-2 & {
 		&:focus {
 			color: $color-2;
-
-			#{$btn}__bar {
-				background-color: $color-2;
-			}
 		}
 
 		@include mq-hover {
 			&:hover {
 				color: $color-2;
-
-				#{$btn}__bar {
-					background-color: $color-2;
-				}
 			}
 		}
 	}
@@ -230,19 +110,11 @@
 	.btn-hover-color-3 & {
 		&:focus {
 			color: $color-3;
-
-			#{$btn}__bar {
-				background-color: $color-3;
-			}
 		}
 
 		@include mq-hover {
 			&:hover {
 				color: $color-3;
-
-				#{$btn}__bar {
-					background-color: $color-3;
-				}
 			}
 		}
 	}
@@ -250,19 +122,11 @@
 	.btn-hover-color-4 & {
 		&:focus {
 			color: $color-4;
-
-			#{$btn}__bar {
-				background-color: $color-4;
-			}
 		}
 
 		@include mq-hover {
 			&:hover {
 				color: $color-4;
-
-				#{$btn}__bar {
-					background-color: $color-4;
-				}
 			}
 		}
 	}
@@ -455,213 +319,6 @@
 		@include mq-hover {
 			&:hover {
 				background-color: $color-4;
-			}
-		}
-	}
-
-	&.is-active {
-		background-color: transparent;
-		border-width: 0;
-
-		@include transition-property(color, opacity);
-
-		&:active,
-		&:focus {
-			background-color: transparent;
-			border-width: 0;
-		}
-
-		#{$btn}__bar {
-			&:nth-child(1),
-			&:nth-child(4) {
-				top: 50%;
-				bottom: auto;
-				opacity: 0;
-				transform: translateY(-50%);
-				transform: rotate(45deg);
-			}
-
-			&:nth-child(2) {
-				transform: rotate(-45deg);
-			}
-
-			&:nth-child(3) {
-				transform: rotate(45deg);
-			}
-		}
-
-		.btn-active-light & {
-			color: $light;
-
-			#{$btn}__bar {
-				background-color: $light;
-			}
-		}
-
-		.btn-active-dark & {
-			color: $dark;
-
-			#{$btn}__bar {
-				background-color: $dark;
-			}
-		}
-
-		.btn-active-color-1 & {
-			color: $color-1;
-
-			#{$btn}__bar {
-				background-color: $color-1;
-			}
-		}
-
-		.btn-active-color-2 & {
-			color: $color-2;
-
-			#{$btn}__bar {
-				background-color: $color-2;
-			}
-		}
-
-		.btn-active-color-3 & {
-			color: $color-3;
-
-			#{$btn}__bar {
-				background-color: $color-3;
-			}
-		}
-
-		.btn-active-color-4 & {
-			color: $color-4;
-
-			#{$btn}__bar {
-				background-color: $color-4;
-			}
-		}
-
-		.btn-active-hover-light & {
-			&:focus {
-				color: $light;
-
-				#{$btn}__bar {
-					background-color: $light;
-				}
-			}
-
-			@include mq-hover {
-				&:hover {
-					color: $light;
-
-					#{$btn}__bar {
-						background-color: $light;
-					}
-				}
-			}
-		}
-
-		.btn-active-hover-dark & {
-			&:focus {
-				color: $dark;
-
-				#{$btn}__bar {
-					background-color: $dark;
-				}
-			}
-
-			@include mq-hover {
-				&:hover {
-					color: $dark;
-
-					#{$btn}__bar {
-						background-color: $dark;
-					}
-				}
-			}
-		}
-
-		.btn-active-hover-color-1 & {
-			&:focus {
-				color: $color-1;
-
-				#{$btn}__bar {
-					background-color: $color-1;
-				}
-			}
-
-			@include mq-hover {
-				&:hover {
-					color: $color-1;
-
-					#{$btn}__bar {
-						background-color: $color-1;
-					}
-				}
-			}
-		}
-
-		.btn-active-hover-color-2 & {
-			&:focus {
-				color: $color-2;
-
-				#{$btn}__bar {
-					background-color: $color-2;
-				}
-			}
-
-			@include mq-hover {
-				&:hover {
-					color: $color-2;
-
-					#{$btn}__bar {
-						background-color: $color-2;
-					}
-				}
-			}
-		}
-
-		.btn-active-hover-color-3 & {
-			&:focus {
-				color: $color-3;
-
-				#{$btn}__bar {
-					background-color: $color-3;
-				}
-			}
-
-			@include mq-hover {
-				&:hover {
-					color: $color-3;
-
-					#{$btn}__bar {
-						background-color: $color-3;
-					}
-				}
-			}
-		}
-
-		.btn-active-hover-color-4 & {
-			&:focus {
-				color: $color-4;
-
-				#{$btn}__bar {
-					background-color: $color-4;
-				}
-			}
-
-			@include mq-hover {
-				&:hover {
-					color: $color-4;
-
-					#{$btn}__bar {
-						background-color: $color-4;
-					}
-				}
-			}
-		}
-
-		@include mq-hover {
-			&:focus,
-			&:hover {
-				background-color: transparent;
 			}
 		}
 	}
