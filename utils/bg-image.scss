@@ -1,51 +1,11 @@
 .u-bg-image {
-	@include background-image;
+	position: absolute;
+	z-index: 0;
 
-	&.is-cover {
-		background-size: cover;
-	}
+	img {
+		width: 100%;
+		height: 100%;
 
-	&.is-contain {
-		background-size: contain;
-	}
-
-	&.is-left-top {
-		background-position: left top;
-	}
-
-	&.is-left-center {
-		background-position: left center;
-	}
-
-	&.is-left-bottom {
-		background-position: left bottom;
-	}
-
-	&.is-right-top {
-		background-position: right top;
-	}
-
-	&.is-right-center {
-		background-position: right center;
-	}
-
-	&.is-right-bottom {
-		background-position: right bottom;
-	}
-
-	&.is-center-top {
-		background-position: center top;
-	}
-
-	&.is-center {
-		background-position: center center;
-	}
-
-	&.is-center-bottom {
-		background-position: center bottom;
-	}
-
-	&.is-fixed {
-		background-attachment: fixed;
+		@include object-fit;
 	}
 }

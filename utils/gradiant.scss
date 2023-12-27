@@ -1,5 +1,6 @@
 [class*=u-gradient-] {
 	position: relative;
+	overflow: hidden;
 
 	&::before {
 		content: '';

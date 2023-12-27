@@ -4,7 +4,7 @@
 
 .u-animate-fade-in {
 	animation-name: kf-fade-in;
-	animation-duration: vars(transition, xfast);
+	animation-duration: vars(transition, med);
 	animation-timing-function: cubic-bezier(.75, .75, .75, 1);
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
@@ -20,32 +20,24 @@
 	}
 }
 
-.u-animate-fade-out {
-	position: relative;
-	animation-name: kf-fade-out;
-	animation-duration: vars(transition, xfast);
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-}
+.u-animate-figure img {
+	&:nth-child(1) {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
 
-@keyframes kf-fade-out {
-	0% {
-		position: relative;
+	&:nth-child(2) {
+		position: absolute;
+		top: 0;
 		left: 0;
-		opacity: 1;
-		transform: scale(1) rotate(180);
-	}
-
-	50% {
-		left: -50px;
-		opacity: 1;
-		transform: scale(2) rotate(360);
-	}
-
-	100% {
-		left: -200px;
+		width: 100%;
+		height: 100%;
 		opacity: 0;
-		transform: scale(0) rotate(960);
+		animation-name: kf-fade-in;
+		animation-duration: vars(transition, med);
+		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
 	}
 }
