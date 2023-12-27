@@ -7,19 +7,19 @@
 
 @media print {
 	* {
-		color: #000 !important;
-		box-shadow: none !important;
-		text-shadow: none !important;
-		filter: none !important;
+		color: #000;
+		box-shadow: none;
+		text-shadow: none;
+		filter: none;
 	}
 
 	@page {
 		margin: 2cm;
 	}
 
-    object,
-    iframe {
-		display: none !important;
+	object,
+	iframe {
+		display: none;
 	}
 
 	h1,
@@ -31,14 +31,14 @@
 		page-break-after: avoid;
 	}
 
-    form,
-    p,
-    ol,
-    ul,
-    img,
-    table {
-        break-inside: avoid;
-    }
+	form,
+	p,
+	ol,
+	ul,
+	img,
+	table {
+		break-inside: avoid;
+	}
 
 	article {
 		page-break-before: always;
@@ -48,13 +48,13 @@
 		font-weight: 700;
 		text-decoration: none;
 
-        &::after {
-            content: '(' attr(href) ')';
-            font-size: .5em;
-        }
+		&::after {
+			content: '(' attr(href) ')';
+			font-size: .5em;
+		}
 
-        &[href^=\#]::after {
-            content: '';
-        }
+		&[href^=\#]::after {
+			content: '';
+		}
 	}
 }
