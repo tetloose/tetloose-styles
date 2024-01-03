@@ -20,24 +20,28 @@
 	}
 }
 
-.u-animate-figure img {
-	&:nth-child(1) {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
+.u-animate-figure {
+	position: relative;
 
-	&:nth-child(2) {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		animation-name: kf-fade-in;
-		animation-duration: vars(transition, med);
-		animation-timing-function: cubic-bezier(.75, .75, .75, 1);
-		animation-iteration-count: 1;
-		animation-fill-mode: forwards;
+	img {
+		&:nth-child(1) {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&:nth-child(2) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			animation-name: kf-fade-in;
+			animation-duration: vars(transition, med);
+			animation-timing-function: cubic-bezier(.75, .75, .75, 1);
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
 	}
 }
