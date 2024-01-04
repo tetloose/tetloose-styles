@@ -30,6 +30,11 @@
 			overflow: hidden;
 		}
 
+		&.is-centered {
+			margin-right: auto;
+			margin-left: auto;
+		}
+
 		&.is-half {
 			width: column-width(3, 1.5);
 		}
