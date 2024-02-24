@@ -4,13 +4,13 @@
 	position: relative;
 	width: 100%;
 	max-width: 100%;
-	padding: rem(spacing(1));
 	overflow: auto;
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	page-break-inside: avoid;
 
-	@include type-paragraph;
+	@extend %type-paragraph;
+	@include sizing('padding', size(4));
 
 	&::before {
 		content: '';
@@ -18,7 +18,8 @@
 		top: 0;
 		bottom: 0;
 		left: 0;
-		width: rem(4px);
+
+		@include sizing('width', size(1));
 
 		.u-dark & {
 			background-color: $dark;

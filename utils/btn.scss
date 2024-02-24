@@ -1,15 +1,15 @@
 .u-btn {
 	position: relative;
-	padding: rem(spacing(.6) spacing(2));
 	background-color: transparent;
-	border-width: rem(2px);
 	border-style: solid;
 	border-color: transparent;
-	border-radius: rem(vars(radius, sml));
 	text-align: center;
 	text-decoration: none;
 
-	@include type-btn;
+	@extend %type-btn;
+	@include sizing('border-radius', vars(radius, sml));
+	@include sizing('padding', [size(2.4), size(8)]);
+	@include sizing('border-width', size(.5));
 
 	@include mq-hover {
 		@include transition('color, background-color, border, opacity');
@@ -30,7 +30,7 @@
 	&[disabled] {
 		opacity: .4;
 
-		@include interaction(disable);
+		@include disable(disable);
 	}
 
 	.btn-light & {

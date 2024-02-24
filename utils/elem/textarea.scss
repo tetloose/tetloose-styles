@@ -1,7 +1,7 @@
 .u-form textarea {
-	@extend %form-reset;
-
-	min-height: rem(300px);
 	overflow: auto;
 	resize: vertical;
+
+	@extend %form-reset;
+	@include sizing('min-height', size(100));
 }

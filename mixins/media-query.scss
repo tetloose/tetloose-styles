@@ -28,7 +28,6 @@
 	}
 }
 
-// No hover for mobile devices
 @mixin mq-hover {
 	@media (hover: hover) and (pointer: fine) {
 		@content;

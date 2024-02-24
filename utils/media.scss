@@ -1,15 +1,16 @@
 .u-media {
+	$iframe: &;
+
 	position: relative;
 	width: 100%;
-	height: 0;
 	overflow: hidden;
 
-	&.ratio-16x9 {
-		padding-bottom: intrinsic(1024, 576);
-	}
-
-	&.ratio-4x6 {
-		padding-bottom: intrinsic(640, 480);
+	&.has-loaded #{$iframe}__iframe {
+		animation-name: kf-fade-in;
+		animation-duration: vars(transition-duration, med);
+		animation-timing-function: vars(transition-timing, med);
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
 	}
 
 	&__iframe {
@@ -18,5 +19,6 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		opacity: 0;
 	}
 }

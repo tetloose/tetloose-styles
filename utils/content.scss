@@ -1,6 +1,5 @@
 @import 'elem/blockquote';
 @import 'elem/em';
-@import 'elem/embed';
 @import 'elem/h1';
 @import 'elem/h2';
 @import 'elem/h3';
@@ -20,11 +19,6 @@
 @import 'elem/ul';
 
 .u-content {
-	> *:first-child {
-		margin-top: 0;
-		padding-top: 0;
-	}
-
 	&.text-align-left {
 		text-align: left;
 	}
@@ -39,12 +33,12 @@
 
 	.u-table,
 	.u-figure,
-	.u-embed,
+	.u-media,
 	pre,
 	hr,
 	img,
 	blockquote {
-		margin: rem(spacing(1)) 0 0 0;
+		@include sizing('margin-top', size(4));
 	}
 
 	p,
@@ -54,15 +48,20 @@
 	h4,
 	h5,
 	h6 {
-		padding: rem(spacing(1)) 0 0 0;
+		@include sizing('padding-top', size(4));
 	}
 
 	ul,
 	ol {
-		padding: rem(spacing(.5)) 0 0 0;
+		@include sizing('padding-top', size(2));
 
 		li {
-			padding: rem(spacing(.5)) 0 0 0;
+			@include sizing('padding-top', size(2));
 		}
+	}
+
+	> *:first-child {
+		margin-top: 0;
+		padding-top: 0;
 	}
 }

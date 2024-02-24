@@ -1,5 +1,6 @@
-// https://github.com/guardian/guss-rem/blob/master/_rem.scss
-/* stylelint-disable */
+@use 'sass:math';
+@use 'sass:list';
+
 @function rem($value, $baseline: vars(layout, browser-context)) {
 	@if $value == 0 {
 		@return 0;
@@ -9,7 +10,7 @@
 		$result: ();
 
 		@each $e in $value {
-			$result: append($result, rem($e, $baseline));
+			$result: list.append($result, rem($e, $baseline));
 		}
 
 		@return $result;
@@ -20,12 +21,10 @@
 
 @mixin rem($properties) {
 	@each $property, $value in $properties {
-		@if  type-of($value) == number and $value != 0 {
-			$value: if(unitless($value), $value * 1px, $value);
+		@if type-of($value) == number and $value != 0 {
+			$value: if(math.is-unitless($value), $value * 1px, $value);
 		}
 
-		// #{$property}: $value;
 		#{$property}: rem($value);
 	}
 }
-/* stylelint-enable */

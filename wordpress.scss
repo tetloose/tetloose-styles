@@ -1,6 +1,4 @@
 @import '../scss/settings';
-$login-dark: #101010;
-$login-light: #ededed;
 
 html,
 body {
@@ -9,36 +7,36 @@ body {
 }
 
 body {
-	padding: 1rem;
+	padding: size(4);
 }
 
 h1 {
-	@include type-h1;
+    font-size: vars(type, xxxxxlrg);
 }
 
 h2 {
-	@include type-h2;
+	font-size: vars(type, xxxxlrg);
 }
 
 h3 {
-	@include type-h3;
+	font-size: vars(type, xxxlrg);
 }
 
 h4 {
-	@include type-h4;
+	font-size: vars(type, xxlrg);
 }
 
 h5 {
-	@include type-h5;
+	font-size: vars(type, xlrg);
 }
 
 h6 {
-	@include type-h6;
+    font-size: vars(type, lrg);
 }
 
 li,
 p {
-	@include type-paragraph;
+	font-size: vars(type, med);
 }
 
 h1,
@@ -50,18 +48,18 @@ h6,
 p,
 ul,
 ol {
-	margin: rem(spacing(1)) 0;
+	margin: size(4) 0;
 	padding: 0;
 }
 
 .u-btn {
-	@include type-btn;
+	font-size: vars(type, med);
 
 	display: inline-block;
-	margin-top: rem(spacing(.5));
-	padding: rem(spacing(.5)) rem(spacing(2));
+	margin-top: size(2);
+	padding: size(2) size(8);
 	background-color: $light;
-	border-width: 2px;
+	border-width: size(.5);
 	border-style: solid;
 	border-color: $dark;
 	color: $dark;
@@ -77,7 +75,7 @@ iframe {
     flex-direction: column;
 	position: relative;
 	align-items: center;
-    background-color: $login-dark;
+    background-color: $dark;
 
     #login {
         position: relative;
@@ -87,11 +85,11 @@ iframe {
         #nav {
             width: 100%;
             text-align: center;
-            padding: .8rem 0 0 0;
+            padding: size(4) 0 0 0;
             margin: 0;
 
             a {
-                color: $login-light;
+                color: $light;
             }
         }
 
@@ -104,22 +102,22 @@ iframe {
 
             label {
                 padding: 0;
-                margin: 0 0 .8rem;
-                color: $login-light;
+                margin: 0 0 size(4);
+                color: $light;
             }
 
             input {
-                background-color: $login-dark;
-                color: $login-light;
+                background-color: $dark;
+                color: $light;
                 border-radius: 0;
-                border-width: 1px;
+                border-width: size(0.25);
                 border-style: solid;
-                border-color: $login-light;
+                border-color: $light;
 
                 &[type=text],
                 &[type=password] {
-                    padding: .8rem 1rem;
-                    font-size: 16px;
+                    padding: size(4) size(8);
+                    font-size: size(4);
                 }
             }
 
@@ -128,12 +126,12 @@ iframe {
                 transform: translateY(-71%);
                 margin: 0;
                 padding: 0;
-                color: $login-light;
+                color: $light;
             }
 
             .forgetmenot {
-                height: 27px;
-                padding-top: 5px;
+                height: size(6.75);
+                padding-top: size(1.25);
             }
         }
 

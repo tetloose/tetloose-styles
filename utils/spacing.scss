@@ -1,115 +1,39 @@
 .u-spacing-t-sml {
-	padding-top: rem(spacing(2));
+	@include sizing('padding-top', size(8));
 }
 
 .u-spacing-t-med {
-	padding-top: rem(spacing(2));
-
-	@include mq(vars(breakpoint, sml)) {
-		padding-top: rem(spacing(2.5));
-	}
+	@include sizing('padding-top', size(10));
 }
 
 .u-spacing-t-lrg {
-	padding-top: rem(spacing(2));
-
-	@include mq(vars(breakpoint, sml)) {
-		padding-top: rem(spacing(2.5));
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		padding-top: rem(spacing(3));
-	}
+	@include sizing('padding-top', size(12));
 }
 
 .u-spacing-t-xlrg {
-	@include mq(vars(breakpoint, sml)) {
-		padding-top: rem(spacing(2.5));
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		padding-top: rem(spacing(3));
-	}
-
-	@include mq(vars(breakpoint, lrg)) {
-		padding-top: rem(spacing(3.5));
-	}
+	@include sizing('padding-top', size(14));
 }
 
 .u-spacing-t-xxlrg {
-	padding-top: rem(spacing(2));
-
-	@include mq(vars(breakpoint, sml)) {
-		padding-top: rem(spacing(2.5));
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		padding-top: rem(spacing(3));
-	}
-
-	@include mq(vars(breakpoint, lrg)) {
-		padding-top: rem(spacing(3.5));
-	}
-
-	@include mq(vars(breakpoint, xlrg)) {
-		padding-top: rem(spacing(4));
-	}
+	@include sizing('padding-top', size(16));
 }
 
 .u-spacing-b-sml {
-	padding-bottom: rem(spacing(2));
+	@include sizing('padding-bottom', size(8));
 }
 
 .u-spacing-b-med {
-	padding-bottom: rem(spacing(2));
-
-	@include mq(vars(breakpoint, sml)) {
-		padding-bottom: rem(spacing(2.5));
-	}
+	@include sizing('padding-bottom', size(10));
 }
 
 .u-spacing-b-lrg {
-	padding-bottom: rem(spacing(2));
-
-	@include mq(vars(breakpoint, sml)) {
-		padding-bottom: rem(spacing(2.5));
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		padding-bottom: rem(spacing(3));
-	}
+	@include sizing('padding-bottom', size(12));
 }
 
 .u-spacing-b-xlrg {
-	@include mq(vars(breakpoint, sml)) {
-		padding-bottom: rem(spacing(2.5));
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		padding-bottom: rem(spacing(3));
-	}
-
-	@include mq(vars(breakpoint, lrg)) {
-		padding-bottom: rem(spacing(3.5));
-	}
+	@include sizing('padding-bottom', size(14));
 }
 
 .u-spacing-b-xxlrg {
-	padding-bottom: rem(spacing(2));
-
-	@include mq(vars(breakpoint, sml)) {
-		padding-bottom: rem(spacing(2.5));
-	}
-
-	@include mq(vars(breakpoint, med)) {
-		padding-bottom: rem(spacing(3));
-	}
-
-	@include mq(vars(breakpoint, lrg)) {
-		padding-bottom: rem(spacing(3.5));
-	}
-
-	@include mq(vars(breakpoint, xlrg)) {
-		padding-bottom: rem(spacing(4));
-	}
+	@include sizing('padding-bottom', size(16));
 }

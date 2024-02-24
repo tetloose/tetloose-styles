@@ -29,7 +29,7 @@
 	}
 
 	.wpcf7 {
-		margin-top: -(rem(spacing(1)));
+		@include sizing('margin-top', size(-4));
 
 		.wpcf7-acceptance {
 			display: block;
@@ -39,11 +39,11 @@
 
 		.wpcf7-response-output {
 			margin: 0;
-			padding: rem(spacing(1) 0 0 0);
 			border-width: 0;
 			text-align: center;
 
-			@include type-small;
+			@extend %type-small;
+			@include sizing('padding', [size(4), size(0), size(0)]);
 
 			.u-form-validation-light & {
 				color: $light;
@@ -72,10 +72,10 @@
 	}
 
 	&__field {
-		margin-top: rem(spacing(1));
+		@include sizing('margin-top', size(4));
 
 		input {
-			margin-top: rem(spacing(.5));
+			@include sizing('margin-top', size(2));
 		}
 
 		&:first-of-type {
@@ -90,9 +90,9 @@
 	.wpcf7-not-valid-tip,
 	&__validation {
 		display: block;
-		padding: rem(spacing(.5) 0 0 0);
 
-		@include type-small;
+		@extend %type-small;
+		@include sizing('padding', [size(2), size(0), size(0)]);
 
 		.u-form-validation-light & {
 			color: $light;
@@ -120,18 +120,12 @@
 	}
 
 	&__options {
-		margin-top: rem(spacing(1));
+		@include sizing('margin-top', size(4));
 
 		label {
 			position: relative;
 
-			@include mq(vars(breakpoint, lrg), max-width) {
-				padding-right: rem(spacing(1.5));
-			}
-
-			@include mq(vars(breakpoint, lrg)) {
-				padding-right: rem(spacing(1));
-			}
+			@include sizing('padding-right', size(6));
 
 			@include mq-hover {
 				cursor: pointer;

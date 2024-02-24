@@ -4,23 +4,20 @@
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	max-width: rem(vars(layout, maxwidth));
 	margin-right: auto;
 	margin-left: auto;
+
+	@include sizing('max-width', vars(layout, max-width));
 
 	&.is-fullwidth {
 		max-width: 100%;
 	}
 
-	&.no-gutter {
-		padding-right: 0;
-		padding-left: 0;
-	}
-
 	&__col {
 		width: 100%;
-		padding-right: rem(vars(layout, gutter));
-		padding-left: rem(vars(layout, gutter));
+
+		@include sizing('padding-right', size(4));
+		@include sizing('padding-left', size(4));
 
 		&.is-relative {
 			position: relative;
@@ -105,7 +102,8 @@
 	#{$this} {
 		width: auto;
 		max-width: none;
-		margin-right: -(rem(vars(layout, gutter)));
-		margin-left: -(rem(vars(layout, gutter)));
+
+		@include sizing('margin-right', -#{size(4)});
+		@include sizing('margin-left', -#{size(4)});
 	}
 }

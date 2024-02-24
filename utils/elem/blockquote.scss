@@ -1,13 +1,13 @@
 .u-content blockquote,
 .u-blockquote {
 	position: relative;
-	padding-left: rem(spacing(1));
+
+	@include sizing('padding-left', size(4));
 
 	footer {
-		@include type-small;
-		@include f-body-bold;
-
-		padding-top: rem(spacing(.2));
+		@extend %type-small;
+		@extend %f-body-bold;
+		@include sizing('padding-top', size(.8));
 	}
 
 	> *:first-child {
@@ -21,7 +21,8 @@
 		top: 0;
 		bottom: 0;
 		left: 0;
-		width: rem(4px);
+
+		@include sizing('width', size(1));
 
 		.u-dark & {
 			background-color: $dark;

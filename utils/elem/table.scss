@@ -5,18 +5,20 @@
 
 	@include mq(vars(breakpoint, med)) {
 		border-collapse: collapse;
-		border-width: 0 0 1px 1px;
+
+		// border-width: 0 0 1px 1px;
 		table-layout: fixed;
 	}
 
 	@include mq(vars(breakpoint, med), max-width) {
 		display: block;
-		border-width: 0 0 1px;
+
+		// border-width: 0 0 1px;
 	}
 
 	tr {
 		@include mq(vars(breakpoint, med)) {
-			border-width: 1px 0 0;
+			// border-width: 1px 0 0;
 			border-style: solid;
 		}
 
@@ -64,16 +66,16 @@
 		border-style: solid;
 		text-align: inherit;
 
-		@include type-paragraph;
+		@extend %type-paragraph;
 
 		@include mq(vars(breakpoint, med)) {
-			padding: rem(spacing(1));
-			border-width: 0 1px 0 0;
+			// padding: rem(spacing(1));
+			// border-width: 0 1px 0 0;
 		}
 
 		@include mq(vars(breakpoint, med), max-width) {
-			padding: rem(spacing(1) 0);
-			border-width: 1px 0 0;
+			// padding: rem(spacing(1) 0);
+			// border-width: 1px 0 0;
 		}
 
 		&.text-align-left {
@@ -122,19 +124,15 @@
 
 	thead,
 	th {
+		@extend %f-heading-bold;
+
 		@include mq(vars(breakpoint, med), max-width) {
 			display: none;
-		}
-
-		@include mq(vars(breakpoint, med)) {
-			@include f-heading-bold;
 		}
 	}
 
 	&__th {
-		@include mq(vars(breakpoint, med), max-width) {
-			@include f-heading-bold;
-		}
+		@extend %f-heading-bold;
 
 		@include mq(vars(breakpoint, med)) {
 			display: none;

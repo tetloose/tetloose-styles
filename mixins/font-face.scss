@@ -2,21 +2,28 @@
 @use 'sass:list';
 @use 'sass:string';
 
-@mixin font-face($font-family, $file-path, $weight: normal, $exts: eot woff2 woff ttf svg, $style: normal, $display: swap) {
+@mixin font-face(
+	$font-family,
+	$file-path,
+	$weight: normal,
+	$exts: eot woff2 woff ttf svg,
+	$style: normal,
+	$display: swap
+) {
 	$src: null;
 	$extensions: (
 		eot: '?',
-		svg: '#' + str-replace($font-family, ' ', '_')
+		svg: '#' + str-replace($font-family, ' ', '_'),
 	);
 	$formats: (
 		otf: 'opentype',
-		ttf: 'truetype'
+		ttf: 'truetype',
 	);
 
 	@each $ext in $exts {
 		$extension: if(map.has-key($extensions, $ext), $ext + map.get($extensions, $ext), $ext);
 		$format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
-		$src: list.append($src, url(quote($file-path + "." + $extension)) format(string.quote($format)), comma);
+		$src: list.append($src, url(quote($file-path + '.' + $extension)) format(string.quote($format)), comma);
 	}
 
 	@font-face {
@@ -27,3 +34,6 @@
 		font-display: $display;
 	}
 }
+
+// Usage
+// @include font-face('icons', '@icons/icons', normal, svg woff ttf);

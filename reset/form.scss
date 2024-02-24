@@ -1,24 +1,24 @@
 %form-reset {
 	display: block;
 	width: 100%;
-	padding: rem(spacing(.5));
-	border-width: rem(2px);
 	border-style: solid;
 	border-color: transparent;
 	appearance: none;
 
-	@include type-paragraph;
+	@extend %type-paragraph;
+	@include sizing('border-width', size(.5));
+	@include sizing('padding', size(2));
 
 	&::placeholder {
 		opacity: .8;
 
-		@include transition('all');
+		@include transition('color');
 	}
 
 	&[disabled] {
 		opacity: .4;
 
-		@include interaction(disable);
+		@include disable(disable);
 	}
 
 	&.is-hidden {
@@ -26,6 +26,6 @@
 	}
 
 	@include mq-hover {
-		@include transition('all');
+		@include transition('color, background-color, border-color');
 	}
 }

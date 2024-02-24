@@ -1,7 +1,8 @@
 .u-content hr,
 .u-hr {
 	width: 100%;
-	height: 2px;
+
+	@include sizing('height', size(.5));
 
 	.u-dark & {
 		background-color: $dark;

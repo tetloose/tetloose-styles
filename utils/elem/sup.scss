@@ -1,6 +1,7 @@
 .u-content sup,
 .u-sup {
 	position: relative;
-	top: rem(-4px);
 	font-size: 85%;
+
+	@include sizing('top', size(-1));
 }

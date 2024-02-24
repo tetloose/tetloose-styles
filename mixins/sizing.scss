@@ -1,0 +1,62 @@
+@use 'sass:list';
+@use 'sass:string';
+
+// calculate size based on layout spacing
+@function size($size) {
+	@return calc(vars(layout, spacing) * $size);
+}
+
+// Usage
+// e.g. padding-top: 42px;
+// 42 / vars(layout, spacing) -> 4px = 42 / 4 = 10.5
+// padding-top: size(10.5)
+
+@mixin sizing(
+	$css-property,
+	$values) {
+	$min: vars(breakpoint, med);
+	$max: vars(breakpoint, xxlrg);
+	$vw-context: calc(strip-unit($max) * .01 * 1px);
+
+	@if type-of($values) == list {
+		@include mq($min, max-width) {
+			$result: ();
+
+			@each $value in $values {
+				$context: calc($value / $vw-context * 3vw);
+				$result: list.append($result, $context);
+			}
+
+			#{$css-property}: string.unquote('#{join($result, '')}');
+		}
+
+		@include mq($min) {
+			$result: ();
+
+			@each $value in $values {
+				$context: calc($value / $vw-context * 1vw);
+				$result: list.append($result, $context);
+			}
+
+			#{$css-property}: string.unquote('#{join($result, '')}');
+		}
+	} @else {
+		@include mq($min, max-width) {
+			#{$css-property}: calc($values / $vw-context * 3vw);
+		}
+
+		@include mq($min) {
+			#{$css-property}: calc($values / $vw-context * 1vw);
+		}
+	}
+}
+
+// Usage
+// Single value
+// @include sizing('padding-top', size(2));
+// Multi value
+// pass in values via css list array
+// @include sizing('padding', [size(2.5), size(5), size(7.5), size(10)]);
+// @include sizing('padding', [size(2.5), size(5), size(7.5)]);
+// @include sizing('padding', [size(2.5), size(5)]);
+// @include sizing('padding', [size(2.5), 0]);

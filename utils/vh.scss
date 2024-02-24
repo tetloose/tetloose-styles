@@ -1,10 +1,14 @@
+$min: vars(breakpoint, med);
+$max: vars(breakpoint, xxlrg);
+$vw-context: calc(strip-unit($max) * .01 * 1px);
+
 .u-vh-fullscreen {
-	@include mq(vars(breakpoint, med), max-width) {
-		min-height: calc(vars(vh, fullscreen) - rem(80px));
+	@include mq($min, max-width) {
+		min-height: calc(vars(vh, fullscreen) - calc(size(30) / $vw-context * 3vw));
 	}
 
-	@include mq(vars(breakpoint, med)) {
-		min-height: calc(vars(vh, fullscreen) - rem(120px));
+	@include mq($min) {
+		min-height: calc(vars(vh, fullscreen) - calc(size(30) / $vw-context * 1vw));
 	}
 }
 

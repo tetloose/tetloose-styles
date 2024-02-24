@@ -1,63 +1,82 @@
-@mixin type-h1 {
-	font-size: rem(vars(type, xxxxxlrg));
+%type-h1 {
 	line-height: 1.2;
 
-	@include f-heading;
+	@include sizing('font-size', vars(type, xxxxxlrg));
+	@extend %f-heading;
 }
 
-@mixin type-h2 {
-	font-size: rem(vars(type, xxxxlrg));
+%type-h2 {
 	line-height: 1.2;
 
-	@include f-heading;
+	@include sizing('font-size', vars(type, xxxxlrg));
+	@extend %f-heading;
 }
 
-@mixin type-h3 {
-	font-size: rem(vars(type, xxxlrg));
+%type-h3 {
 	line-height: 1.2;
 
-	@include f-heading;
+	@include sizing('font-size', vars(type, xxxlrg));
+	@extend %f-heading;
 }
 
-@mixin type-h4 {
-	font-size: rem(vars(type, xxlrg));
+%type-h4 {
 	line-height: 1.2;
 
-	@include f-heading;
+	@include sizing('font-size', vars(type, xxlrg));
+	@extend %f-heading;
 }
 
-@mixin type-h5 {
-	font-size: rem(vars(type, xlrg));
+%type-h5 {
 	line-height: 1.3;
 
-	@include f-heading;
+	@include sizing('font-size', vars(type, xlrg));
+	@extend %f-heading;
 }
 
-@mixin type-h6 {
-	font-size: rem(vars(type, lrg));
+%type-h6 {
 	line-height: 1.3;
 
-	@include f-heading;
+	@include sizing('font-size', vars(type, lrg));
+	@extend %f-heading;
 }
 
-@mixin type-small {
-	font-size: rem(vars(type, sml));
+%type-small {
+	@include sizing('font-size', vars(type, sml));
 }
 
-@mixin type-paragraph {
-	font-size: rem(vars(type, med));
+%type-paragraph {
+	@include sizing('font-size', vars(type, med));
 }
 
-@mixin type-btn {
-	font-size: rem(vars(type, sml));
-
-	@include f-heading;
+%type-btn {
+	@include sizing('font-size', vars(type, sml));
+	@extend %f-heading;
 }
 
-@mixin type-label {
-	font-size: rem(vars(type, med));
+%type-label {
+	@include sizing('font-size', vars(type, med));
 }
 
-@mixin type-icon {
-	font-size: rem(vars(type, lrg));
+%type-icon-sml {
+	@include sizing('font-size', vars(type, sml));
+}
+
+%type-icon-med {
+	@include sizing('font-size', vars(type, med));
+}
+
+%type-icon-lrg {
+	@include sizing('font-size', vars(type, lrg));
+}
+
+%type-icon-xlrg {
+	@include sizing('font-size', vars(type, xlrg));
+}
+
+%type-icon-xxlrg {
+	@include sizing('font-size', vars(type, xxlrg));
+}
+
+%type-icon-xxxlrg {
+	@include sizing('font-size', vars(type, xxxlrg));
 }

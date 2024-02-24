@@ -1,7 +1,7 @@
 .u-content ol,
 .u-ol {
-	margin-left: rem(18px);
 	list-style-type: decimal;
 
-	@include type-paragraph;
+	@extend %type-paragraph;
+	@include sizing('margin-left', size(4.5));
 }

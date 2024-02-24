@@ -1,11 +1,10 @@
 .l-action {
-	padding-top: rem(spacing(.5));
+	@include sizing('padding-top', size(2));
+	@include sizing('gap', size(.8));
 
 	@include mq(vars(breakpoint, sml)) {
 		display: flex;
 		flex-wrap: nowrap;
-		margin-right: -(rem(spacing(.2)));
-		margin-left: -(rem(spacing(.2)));
 		align-items: center;
 	}
 
@@ -22,16 +21,11 @@
 	}
 
 	.u-btn {
-		margin-top: rem(spacing(.5));
+		@include sizing('margin-top', size(2));
 
 		@include mq(vars(breakpoint, sml), max-width) {
 			display: block;
 			width: 100%;
-		}
-
-		@include mq(vars(breakpoint, sml)) {
-			margin-right: rem(spacing(.2));
-			margin-left: rem(spacing(.2));
 		}
 	}
 }

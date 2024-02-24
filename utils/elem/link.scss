@@ -7,12 +7,12 @@
 		content: '';
 		position: absolute;
 		top: 0;
-		right: -(rem(4px));
 		bottom: 0;
-		left: -(rem(4px));
 		z-index: -1;
 		opacity: 0;
 
+		@include sizing('left', size(-1));
+		@include sizing('right', size(-1));
 		@include transition('all');
 		@include hardware(true);
 	}
