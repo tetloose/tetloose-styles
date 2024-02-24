@@ -45,11 +45,16 @@ $vars: (
 		one-third: 33.3333vh,
 		two-third: 66.6666vh
 	),
-	transition: (
+	transition-duration: (
 		slow: 500ms,
 		med: 400ms,
 		fast: 300ms,
 		xfast: 200ms,
 		xxfast: 100ms
 	),
+	transition-timing: (
+		slow: cubic-bezier(0, 0, .25, 1),
+		med: cubic-bezier(.25, .3, .25, 1),
+		fast: cubic-bezier(.25, .3, .25, 1)
+	)
 );

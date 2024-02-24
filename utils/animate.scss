@@ -4,8 +4,8 @@
 
 .u-animate-fade-in {
 	animation-name: kf-fade-in;
-	animation-duration: vars(transition, med);
-	animation-timing-function: cubic-bezier(.75, .75, .75, 1);
+	animation-duration: vars(transition-duration, med);
+	animation-timing-function: vars(transition-timing, med);
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
@@ -38,8 +38,8 @@
 			height: 100%;
 			opacity: 0;
 			animation-name: kf-fade-in;
-			animation-duration: vars(transition, med);
-			animation-timing-function: cubic-bezier(.75, .75, .75, 1);
+			animation-duration: vars(transition-duration, med);
+			animation-timing-function: vars(transition-timing, med);
 			animation-iteration-count: 1;
 			animation-fill-mode: forwards;
 		}
