@@ -14,39 +14,35 @@
 @mixin sizing(
 	$css-property,
 	$values) {
-	$min: vars(breakpoint, med);
-	$max: vars(breakpoint, xxlrg);
-	$vw-context: calc(strip-unit($max) * .01 * 1px);
-
 	@if type-of($values) == list {
-		@include mq($min, max-width) {
+		@include mq($vw-min, max-width) {
 			$result: ();
 
 			@each $value in $values {
-				$context: calc($value / $vw-context * 3vw);
+				$context: calc($value / $vw-context * $vw-adjustment-min);
 				$result: list.append($result, $context);
 			}
 
 			#{$css-property}: string.unquote('#{join($result, '')}');
 		}
 
-		@include mq($min) {
+		@include mq($vw-min) {
 			$result: ();
 
 			@each $value in $values {
-				$context: calc($value / $vw-context * 1vw);
+				$context: calc($value / $vw-context * $vw-adjustment-max);
 				$result: list.append($result, $context);
 			}
 
 			#{$css-property}: string.unquote('#{join($result, '')}');
 		}
 	} @else {
-		@include mq($min, max-width) {
-			#{$css-property}: calc($values / $vw-context * 3vw);
+		@include mq($vw-min, max-width) {
+			#{$css-property}: calc($values / $vw-context * $vw-adjustment-min);
 		}
 
-		@include mq($min) {
-			#{$css-property}: calc($values / $vw-context * 1vw);
+		@include mq($vw-min) {
+			#{$css-property}: calc($values / $vw-context * $vw-adjustment-max);
 		}
 	}
 }

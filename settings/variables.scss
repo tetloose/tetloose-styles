@@ -17,16 +17,16 @@ $vars: (
 		med: 16px,
 		sml: 14px
 	),
-	layout: (
-		max-width: 1024px,
-		spacing: 4px
-	),
 	breakpoint: (
 		sml: 420px,
 		med: 768px,
 		lrg: 1024px,
 		xlrg: 1280px,
 		xxlrg: 1520px
+	),
+	layout: (
+		max-width: 1024px,
+		spacing: 4px
 	),
 	radius: (
 		tny: 2px,
@@ -58,3 +58,8 @@ $vars: (
 		ease-in-out: ease-in-out
 	)
 );
+$vw-min: vars(breakpoint, med);
+$vw-max: vars(breakpoint, xxlrg);
+$vw-context: calc(strip-unit($vw-max) * .01 * 1px);
+$vw-adjustment-min: 3vw;
+$vw-adjustment-max: 1vw;
