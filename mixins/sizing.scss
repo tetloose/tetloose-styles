@@ -36,6 +36,17 @@
 
 			#{$css-property}: string.unquote('#{join($result, '')}');
 		}
+
+		@include mq($vw-max) {
+			$result: ();
+
+			@each $value in $values {
+				$context: $value;
+				$result: list.append($result, $context);
+			}
+
+			#{$css-property}: string.unquote('#{join($result, '')}');
+		}
 	} @else {
 		@include mq($vw-min, max-width) {
 			#{$css-property}: calc($values / $vw-context * $vw-adjustment-min);
@@ -43,6 +54,10 @@
 
 		@include mq($vw-min) {
 			#{$css-property}: calc($values / $vw-context * $vw-adjustment-max);
+		}
+
+		@include mq($vw-max) {
+			#{$css-property}: $values;
 		}
 	}
 }
