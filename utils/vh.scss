@@ -1,11 +1,7 @@
-.u-vh-fullscreen {
-	@include mq($vw-min, max-width) {
-		min-height: calc(vars(vh, fullscreen) - (size(30) / $vw-context * $vw-adjustment-min));
-	}
+@use '../settings/variables' as *;
 
-	@include mq($vw-min) {
-		min-height: calc(vars(vh, fullscreen) - (size(30) / $vw-context * $vw-adjustment-max));
-	}
+.u-vh-fullscreen {
+	min-height: vars(vh, fullscreen);
 }
 
 .u-vh-half {

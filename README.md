@@ -6,7 +6,7 @@ Component CSS changes but global stuff rarely does, so we can cache this on firs
 
 Cherry pick + add utils, per project etc.
 
-Import `@import '../path-to-settings/settings/index.scss'` in a component to make use of variables + mixins.
+Use `@use '@styles/settings' as *;` in a component to make use of variables + mixins.
 
 CSS methodologies based on BEM + SMACSS with Utility Classes.
 

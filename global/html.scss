@@ -1,3 +1,9 @@
+@use '../settings/variables' as *;
+@use '../mixins/font-smoothing' as *;
+@use '../mixins/size' as *;
+@use '../mixins/sizing' as *;
+@use '../settings/fonts' as *;
+
 html {
 	min-height: vars(vh, fullscreen);
 	visibility: visible;

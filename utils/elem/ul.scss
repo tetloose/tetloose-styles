@@ -1,3 +1,7 @@
+@use '../../settings/typography' as *;
+@use '../../mixins/size' as *;
+@use '../../mixins/sizing' as *;
+
 .u-content ul,
 .u-ul {
 	list-style-type: disc;

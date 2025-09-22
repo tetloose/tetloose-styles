@@ -1,3 +1,5 @@
+@use '../../reset/form' as *;
+
 .u-form input[type=email] {
 	@extend %form-reset;
 }

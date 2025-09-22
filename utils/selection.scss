@@ -1,3 +1,5 @@
+@use '../settings/colors' as *;
+
 .u-selection-color-light {
 	::selection {
 		color: $light;

@@ -1,3 +1,8 @@
+@use '../settings/variables' as *;
+@use '../mixins/media-query' as *;
+@use '../mixins/size' as *;
+@use '../mixins/sizing' as *;
+
 .l-action {
 	@include sizing('padding-top', size(2));
 	@include sizing('gap', size(.8));

@@ -1,3 +1,9 @@
+@use '../../settings/typography' as *;
+@use '../../settings/fonts' as *;
+@use '../../settings/colors' as *;
+@use '../../mixins/size' as *;
+@use '../../mixins/sizing' as *;
+
 .u-content blockquote,
 .u-blockquote {
 	position: relative;

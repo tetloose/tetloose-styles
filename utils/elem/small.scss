@@ -1,3 +1,5 @@
+@use '../../settings/typography' as *;
+
 .u-content small,
 .u-small {
 	@extend %type-small;

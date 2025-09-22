@@ -1,3 +1,9 @@
+@use '../settings/variables' as *;
+@use '../mixins/media-query' as *;
+@use '../mixins/column-width' as *;
+@use '../mixins/size' as *;
+@use '../mixins/sizing' as *;
+
 .l-row {
 	$this: &;
 
@@ -59,40 +65,40 @@
 
 		@for $i from 1 through 5 {
 			$breakpoint: vars(breakpoint, xxlrg);
-			$selecter: 'xxlrg';
+			$selector: 'xxlrg';
 
 			@if $i == 1 {
 				$breakpoint: vars(breakpoint, sml);
-				$selecter: 'sml';
+				$selector: 'sml';
 			} @else if $i == 2 {
 				$breakpoint: vars(breakpoint, med);
-				$selecter: 'med';
+				$selector: 'med';
 			} @else if $i == 3 {
 				$breakpoint: vars(breakpoint, lrg);
-				$selecter: 'lrg';
+				$selector: 'lrg';
 			} @else if $i == 4 {
 				$breakpoint: vars(breakpoint, xlrg);
-				$selecter: 'xlrg';
+				$selector: 'xlrg';
 			}
 
 			@include mq($breakpoint) {
-				&.is-#{$selecter}-half {
+				&.is-#{$selector}-half {
 					width: column-width(3, 1.5);
 				}
 
-				&.is-#{$selecter}-1-third {
+				&.is-#{$selector}-1-third {
 					width: column-width(3, 1);
 				}
 
-				&.is-#{$selecter}-2-third {
+				&.is-#{$selector}-2-third {
 					width: column-width(3, 2);
 				}
 
-				&.is-#{$selecter}-1-forth {
+				&.is-#{$selector}-1-forth {
 					width: column-width(4, 1);
 				}
 
-				&.is-#{$selecter}-3-forth {
+				&.is-#{$selector}-3-forth {
 					width: column-width(4, 3);
 				}
 			}

@@ -1,3 +1,6 @@
+@use '../settings/variables' as *;
+@use '../mixins/object-fit' as *;
+
 .u-figure {
 	$figure: &;
 

@@ -1,3 +1,7 @@
+@use '../../settings/colors' as *;
+@use '../../mixins/size' as *;
+@use '../../mixins/sizing' as *;
+
 .u-content hr,
 .u-hr {
 	width: 100%;

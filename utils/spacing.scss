@@ -1,3 +1,6 @@
+@use '../mixins/size' as *;
+@use '../mixins/sizing' as *;
+
 .u-spacing-t-sml {
 	@include sizing('padding-top', size(8));
 }

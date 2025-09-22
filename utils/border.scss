@@ -1,3 +1,8 @@
+@use '../settings/colors' as *;
+@use '../mixins/size' as *;
+@use '../mixins/sizing' as *;
+@use '../mixins/media-query' as *;
+
 .u-border {
 	border-style: solid;
 

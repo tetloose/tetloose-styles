@@ -1,3 +1,8 @@
+@use '../../mixins/size' as *;
+@use '../../mixins/sizing' as *;
+@use '../../settings/colors' as *;
+@use '../../settings/typography' as *;
+
 .u-content pre,
 .u-pre {
 	display: block;

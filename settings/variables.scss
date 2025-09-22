@@ -1,8 +1,11 @@
-@function vars($name, $variant) {
+@use 'sass:map';
+@use '../mixins/strip-unit' as *;
+
+@function vars($name, $variant: null) {
 	@if $variant {
-		@return map-get(map-get($vars, $name), $variant);
+		@return map.get(map.get($vars, $name), $variant);
 	} @else {
-		@return map-get($vars, $name);
+		@return map.get($vars, $name);
 	}
 }
 

@@ -1,3 +1,6 @@
+@use '../../mixins/size' as *;
+@use '../../mixins/sizing' as *;
+
 .u-content sub,
 .u-sub {
 	position: relative;

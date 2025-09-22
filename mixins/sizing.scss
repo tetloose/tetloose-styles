@@ -1,59 +1,46 @@
+@use '../settings/variables' as *;
+@use '../mixins/media-query' as *;
 @use 'sass:list';
-@use 'sass:string';
+@use 'sass:meta';
 
-// calculate size based on layout spacing
-@function size($size) {
-	@return calc(vars(layout, spacing) * $size);
-}
-
-// Usage
-// e.g. padding-top: 42px;
-// 42 / vars(layout, spacing) -> 4px = 42 / 4 = 10.5
-// padding-top: size(10.5)
-
-@mixin sizing(
-	$css-property,
-	$values) {
-	@if type-of($values) == list {
+@mixin sizing($css-property, $values) {
+	@if meta.type-of($values) == 'list' {
 		@include mq($vw-min, max-width) {
 			$result: ();
 
 			@each $value in $values {
-				$context: calc($value / $vw-context * $vw-adjustment-min);
-				$result: list.append($result, $context);
+				$result: list.append(
+					$result,
+					calc(#{ $value } / #{ $vw-context } * #{ $vw-adjustment-min })
+				);
 			}
 
-			#{$css-property}: string.unquote('#{join($result, '')}');
+			#{$css-property}: $result;
 		}
 
 		@include mq($vw-min) {
 			$result: ();
 
 			@each $value in $values {
-				$context: calc($value / $vw-context * $vw-adjustment-max);
-				$result: list.append($result, $context);
+				$result: list.append(
+					$result,
+					calc(#{ $value } / #{ $vw-context } * #{ $vw-adjustment-max })
+				);
 			}
 
-			#{$css-property}: string.unquote('#{join($result, '')}');
+			#{$css-property}: $result;
 		}
 
 		@include mq($vw-max) {
-			$result: ();
-
-			@each $value in $values {
-				$context: $value;
-				$result: list.append($result, $context);
-			}
-
-			#{$css-property}: string.unquote('#{join($result, '')}');
+			#{$css-property}: $values;
 		}
 	} @else {
 		@include mq($vw-min, max-width) {
-			#{$css-property}: calc($values / $vw-context * $vw-adjustment-min);
+			#{$css-property}: calc(#{ $values } / #{ $vw-context } * #{ $vw-adjustment-min });
 		}
 
 		@include mq($vw-min) {
-			#{$css-property}: calc($values / $vw-context * $vw-adjustment-max);
+			#{$css-property}: calc(#{ $values } / #{ $vw-context } * #{ $vw-adjustment-max });
 		}
 
 		@include mq($vw-max) {

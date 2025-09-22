@@ -1,3 +1,6 @@
+@use '../../settings/typography' as *;
+@use '../../settings/fonts' as *;
+
 .u-content h1,
 .u-h1 {
 	@extend %type-h1;

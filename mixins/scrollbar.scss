@@ -1,9 +1,17 @@
-@mixin scrollbar($size: 2.5, $foreground-color: $light, $background-color: $dark) {
+@use '../settings/colors' as *;
+
+@mixin scrollbar(
+	$size: 1.25rem,
+	$foreground-color: color(default, dark),
+	$background-color: color(default, light)
+) {
 	scrollbar-color: $foreground-color $background-color;
+	scrollbar-width: thin;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 
 	&::-webkit-scrollbar {
-		@include sizing('width', size($size));
-		@include sizing('height', size($size));
+		width: $size;
+		height: $size;
 	}
 
 	&::-webkit-scrollbar-thumb {

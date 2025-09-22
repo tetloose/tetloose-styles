@@ -1,4 +1,6 @@
-@import '../scss/settings';
+@use './settings/variables' as *;
+@use './settings/colors' as *;
+@use './mixins/size' as *;
 
 html,
 body {

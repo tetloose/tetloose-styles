@@ -1,3 +1,7 @@
+@use '../settings/fonts' as *;
+@use '../mixins/sizing' as *;
+@use '../settings/variables' as *;
+
 %type-h1 {
 	line-height: 1.2;
 

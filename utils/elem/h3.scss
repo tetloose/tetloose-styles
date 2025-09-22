@@ -1,3 +1,6 @@
+@use '../../settings/typography' as *;
+@use '../../settings/fonts' as *;
+
 .u-content h3,
 .u-h3 {
 	@extend %type-h3;
