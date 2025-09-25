@@ -1,30 +1,34 @@
-@use '../settings/colors' as *;
+@use '../settings' as *;
 
 [class*=u-bg-] {
 	position: relative;
-	z-index: 0;
-}
-
-.u-bg-light {
-	background-color: $light;
+	z-index: z-index(zero);
 }
 
 .u-bg-dark {
-	background-color: $dark;
+	@extend %bg-dark;
+}
+
+.u-bg-light {
+	@extend %bg-light;
+}
+
+.u-bg-grey {
+	@extend %bg-grey;
 }
 
 .u-bg-color-1 {
-	background-color: $color-1;
+	@extend %bg-1;
 }
 
 .u-bg-color-2 {
-	background-color: $color-2;
+	@extend %bg-2;
 }
 
 .u-bg-color-3 {
-	background-color: $color-3;
+	@extend %bg-3;
 }
 
 .u-bg-color-4 {
-	background-color: $color-4;
+	@extend %bg-4;
 }

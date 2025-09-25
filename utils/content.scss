@@ -1,38 +1,6 @@
-@use '../mixins/size' as *;
-@use '../mixins/sizing' as *;
-@use 'elem/blockquote' as *;
-@use 'elem/em' as *;
-@use 'elem/h1' as *;
-@use 'elem/h2' as *;
-@use 'elem/h3' as *;
-@use 'elem/h4' as *;
-@use 'elem/h5' as *;
-@use 'elem/h6' as *;
-@use 'elem/hr' as *;
-@use 'elem/link' as *;
-@use 'elem/ol' as *;
-@use 'elem/p' as *;
-@use 'elem/pre' as *;
-@use 'elem/small' as *;
-@use 'elem/strong' as *;
-@use 'elem/sub' as *;
-@use 'elem/sup' as *;
-@use 'elem/table' as *;
-@use 'elem/ul' as *;
+@use '../settings' as *;
 
 .u-content {
-	&.text-align-left {
-		text-align: left;
-	}
-
-	&.text-align-right {
-		text-align: right;
-	}
-
-	&.text-align-center {
-		text-align: center;
-	}
-
 	.u-table,
 	.u-figure,
 	.u-media,

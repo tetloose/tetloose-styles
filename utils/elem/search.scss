@@ -1,5 +1,0 @@
-@use '../../reset/form' as *;
-
-.u-form input[type=search] {
-	@extend %form-reset;
-}

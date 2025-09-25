@@ -1,0 +1,5 @@
+@use '../reset/form' as *;
+
+.u-form select {
+	@extend %form-reset;
+}

@@ -1,0 +1,10 @@
+@use '../reset/form' as *;
+@use '../settings' as *;
+
+.u-form textarea {
+	overflow: auto;
+	resize: vertical;
+
+	@extend %form-reset;
+	@include sizing('min-height', size(100));
+}

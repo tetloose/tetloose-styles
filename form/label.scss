@@ -1,0 +1,7 @@
+@use '../settings' as *;
+
+.u-form label {
+	display: inline-block;
+
+	@extend %f-label;
+}

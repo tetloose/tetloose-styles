@@ -1,49 +1,54 @@
 @use '../settings/variables' as *;
-@use '../mixins/media-query' as *;
+@use 'media-query' as *;
+@use 'strip-unit' as *;
 @use 'sass:list';
 @use 'sass:meta';
 
+$min: breakpoint(viewport-width(breakpoint-min));
+$max: breakpoint(viewport-width(breakpoint-max));
+$context: calc(strip-unit($max) * .01 * 1px);
+
 @mixin sizing($css-property, $values) {
 	@if meta.type-of($values) == 'list' {
-		@include mq($vw-min, max-width) {
+		@include mq($min, max-width) {
 			$result: ();
 
 			@each $value in $values {
 				$result: list.append(
 					$result,
-					calc(#{ $value } / #{ $vw-context } * #{ $vw-adjustment-min })
+					calc(#{ $value } / #{ $context } * #{ viewport-width(adjustment-min) })
 				);
 			}
 
 			#{$css-property}: $result;
 		}
 
-		@include mq($vw-min) {
+		@include mq($min) {
 			$result: ();
 
 			@each $value in $values {
 				$result: list.append(
 					$result,
-					calc(#{ $value } / #{ $vw-context } * #{ $vw-adjustment-max })
+					calc(#{ $value } / #{ $context } * #{ viewport-width(adjustment-max) })
 				);
 			}
 
 			#{$css-property}: $result;
 		}
 
-		@include mq($vw-max) {
+		@include mq($max) {
 			#{$css-property}: $values;
 		}
 	} @else {
-		@include mq($vw-min, max-width) {
-			#{$css-property}: calc(#{ $values } / #{ $vw-context } * #{ $vw-adjustment-min });
+		@include mq($min, max-width) {
+			#{$css-property}: calc(#{ $values } / #{ $context } * #{ viewport-width(adjustment-min) });
 		}
 
-		@include mq($vw-min) {
-			#{$css-property}: calc(#{ $values } / #{ $vw-context } * #{ $vw-adjustment-max });
+		@include mq($min) {
+			#{$css-property}: calc(#{ $values } / #{ $context } * #{ viewport-width(adjustment-max) });
 		}
 
-		@include mq($vw-max) {
+		@include mq($max) {
 			#{$css-property}: $values;
 		}
 	}

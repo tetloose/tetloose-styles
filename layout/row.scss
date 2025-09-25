@@ -1,11 +1,8 @@
-@use '../settings/variables' as *;
-@use '../mixins/media-query' as *;
-@use '../mixins/column-width' as *;
-@use '../mixins/size' as *;
-@use '../mixins/sizing' as *;
+@use 'sass:map';
+@use '../settings' as *;
 
 .l-row {
-	$this: &;
+	$row: &;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -13,17 +10,219 @@
 	margin-right: auto;
 	margin-left: auto;
 
-	@include sizing('max-width', vars(layout, max-width));
+	@include sizing('max-width', layout(max-width));
 
-	&.is-fullwidth {
+	&.align-flex-start {
+		align-items: flex-start;
+	}
+
+	&.align-center {
+		align-items: center;
+	}
+
+	&.align-flex-end {
+		align-items: flex-end;
+	}
+
+	&.align-stretch {
+		align-items: stretch;
+	}
+
+	&.align-baseline {
+		align-items: baseline;
+	}
+
+	@each $breakpoint, $size in map.get($variables, breakpoints) {
+		@include mq($size) {
+			&.#{$breakpoint}-align-flex-start {
+				align-items: flex-start;
+			}
+
+			&.#{$breakpoint}-align-center {
+				align-items: center;
+			}
+
+			&.#{$breakpoint}-align-flex-end {
+				align-items: flex-end;
+			}
+
+			&.#{$breakpoint}-align-stretch {
+				align-items: stretch;
+			}
+
+			&.#{$breakpoint}-align-baseline {
+				align-items: baseline;
+			}
+		}
+	}
+
+	&.justify-flex-start {
+		justify-content: flex-start;
+	}
+
+	&.justify-center {
+		justify-content: center;
+	}
+
+	&.justify-flex-end {
+		justify-content: flex-end;
+	}
+
+	&.justify-space-between {
+		justify-content: space-between;
+	}
+
+	&.justify-space-around {
+		justify-content: space-around;
+	}
+
+	&.justify-space-evenly {
+		justify-content: space-evenly;
+	}
+
+	@each $breakpoint, $size in map.get($variables, breakpoints) {
+		@include mq($size) {
+			&.#{$breakpoint}-justify-flex-start {
+				justify-content: flex-start;
+			}
+
+			&.#{$breakpoint}-justify-center {
+				justify-content: center;
+			}
+
+			&.#{$breakpoint}-justify-flex-end {
+				justify-content: flex-end;
+			}
+
+			&.#{$breakpoint}-justify-space-between {
+				justify-content: space-between;
+			}
+
+			&.#{$breakpoint}-justify-space-around {
+				justify-content: space-around;
+			}
+
+			&.#{$breakpoint}-justify-space-evenly {
+				justify-content: space-evenly;
+			}
+		}
+	}
+
+	&.direction-row {
+		flex-direction: row;
+	}
+
+	&.direction-row-reverse {
+		flex-direction: row-reverse;
+	}
+
+	&.direction-column {
+		flex-direction: column;
+	}
+
+	&.direction-column-reverse {
+		flex-direction: column-reverse;
+	}
+
+	@each $breakpoint, $size in map.get($variables, breakpoints) {
+		@include mq($size) {
+			&.#{$breakpoint}-direction-row {
+				flex-direction: row;
+			}
+
+			&.#{$breakpoint}-direction-row-reverse {
+				flex-direction: row-reverse;
+			}
+
+			&.#{$breakpoint}-direction-column {
+				flex-direction: column;
+			}
+
+			&.#{$breakpoint}-direction-column-reverse {
+				flex-direction: column-reverse;
+			}
+		}
+	}
+
+	&.full-width {
 		max-width: 100%;
 	}
 
 	&__col {
+		@include sizing('padding-right', size(layout(gutter)));
+		@include sizing('padding-left', size(layout(gutter)));
+
 		width: 100%;
 
-		@include sizing('padding-right', size(4));
-		@include sizing('padding-left', size(4));
+		&.width-auto {
+			width: auto;
+		}
+
+		@for $i from 1 through layout(columns) {
+			&.width-#{$i} {
+				width: column-width(layout(columns), #{$i});
+			}
+		}
+
+		@include mq(breakpoint(sml)) {
+			&.sml-width-auto {
+				width: auto;
+			}
+
+			@for $i from 1 through layout(columns) {
+				&.sml-width-#{$i} {
+					width: column-width(layout(columns), #{$i});
+				}
+			}
+		}
+
+		@include mq(breakpoint(med)) {
+			&.med-width-auto {
+				width: auto;
+			}
+
+			@for $i from 1 through layout(columns) {
+				&.med-width-#{$i} {
+					width: column-width(layout(columns), #{$i});
+				}
+			}
+		}
+
+		@include mq(breakpoint(lrg)) {
+			&.lrg-width-auto {
+				width: auto;
+			}
+
+			@for $i from 1 through layout(columns) {
+				&.lrg-width-#{$i} {
+					width: column-width(layout(columns), #{$i});
+				}
+			}
+		}
+
+		@include mq(breakpoint(xlrg)) {
+			&.xlrg-width-auto {
+				width: auto;
+			}
+
+			@for $i from 1 through layout(columns) {
+				&.xlrg-width-#{$i} {
+					width: column-width(layout(columns), #{$i});
+				}
+			}
+		}
+
+		@include mq(breakpoint(xxlrg)) {
+			&.xxlrg-width-auto {
+				width: auto;
+			}
+
+			@for $i from 1 through layout(columns) {
+				&.xxlrg-width-#{$i} {
+					width: column-width(layout(columns), #{$i});
+				}
+			}
+		}
 
 		&.is-relative {
 			position: relative;
@@ -38,78 +237,17 @@
 			margin-left: auto;
 		}
 
-		&.is-half {
-			width: column-width(3, 1.5);
-		}
-
-		&.is-1-third {
-			width: column-width(3, 1);
-		}
-
-		&.is-2-third {
-			width: column-width(3, 2);
-		}
-
-		&.is-1-forth {
-			width: column-width(4, 1);
-		}
-
-		&.is-3-forth {
-			width: column-width(4, 3);
-		}
-
 		&.no-gutter {
 			padding-right: 0;
 			padding-left: 0;
 		}
-
-		@for $i from 1 through 5 {
-			$breakpoint: vars(breakpoint, xxlrg);
-			$selector: 'xxlrg';
-
-			@if $i == 1 {
-				$breakpoint: vars(breakpoint, sml);
-				$selector: 'sml';
-			} @else if $i == 2 {
-				$breakpoint: vars(breakpoint, med);
-				$selector: 'med';
-			} @else if $i == 3 {
-				$breakpoint: vars(breakpoint, lrg);
-				$selector: 'lrg';
-			} @else if $i == 4 {
-				$breakpoint: vars(breakpoint, xlrg);
-				$selector: 'xlrg';
-			}
-
-			@include mq($breakpoint) {
-				&.is-#{$selector}-half {
-					width: column-width(3, 1.5);
-				}
-
-				&.is-#{$selector}-1-third {
-					width: column-width(3, 1);
-				}
-
-				&.is-#{$selector}-2-third {
-					width: column-width(3, 2);
-				}
-
-				&.is-#{$selector}-1-forth {
-					width: column-width(4, 1);
-				}
-
-				&.is-#{$selector}-3-forth {
-					width: column-width(4, 3);
-				}
-			}
-		}
 	}
 
-	#{$this} {
+	#{$row} {
 		width: auto;
 		max-width: none;
 
-		@include sizing('margin-right', -#{size(4)});
-		@include sizing('margin-left', -#{size(4)});
+		@include sizing('margin-right', -#{size(layout(gutter))});
+		@include sizing('margin-left', -#{size(layout(gutter))});
 	}
 }

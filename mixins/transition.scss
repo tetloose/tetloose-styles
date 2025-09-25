@@ -3,24 +3,26 @@
 
 @mixin transition(
 	$property: 'color',
-	$duration: vars(transition-duration, med),
-	$timing: vars(transition-timing, med),
+	$duration: transition-duration(med),
+	$timing: transition-timing(med),
 	$delay: null
 ) {
-	@if $property {
-		transition-property: string.unquote($property);
-	}
+	@media (prefers-reduced-motion: no-preference) {
+		@if $property {
+			transition-property: string.unquote($property);
+		}
 
-	@if $duration {
-		transition-duration: $duration;
-	}
+		@if $duration {
+			transition-duration: $duration;
+		}
 
-	@if $timing {
-		transition-timing-function: $timing;
-	}
+		@if $timing {
+			transition-timing-function: $timing;
+		}
 
-	@if $delay {
-		transition-delay: $delay;
+		@if $delay {
+			transition-delay: $delay;
+		}
 	}
 }
 

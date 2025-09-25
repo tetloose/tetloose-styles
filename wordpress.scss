@@ -1,6 +1,4 @@
-@use './settings/variables' as *;
-@use './settings/colors' as *;
-@use './mixins/size' as *;
+@use './settings' as *;
 
 html,
 body {
@@ -13,32 +11,32 @@ body {
 }
 
 h1 {
-    font-size: vars(type, xxxxxlrg);
+    font-size: font-size(xxxxxlrg);
 }
 
 h2 {
-	font-size: vars(type, xxxxlrg);
+	font-size: font-size(xxxxlrg);
 }
 
 h3 {
-	font-size: vars(type, xxxlrg);
+	font-size: font-size(xxxlrg);
 }
 
 h4 {
-	font-size: vars(type, xxlrg);
+	font-size: font-size(xxlrg);
 }
 
 h5 {
-	font-size: vars(type, xlrg);
+	font-size: font-size(xlrg);
 }
 
 h6 {
-    font-size: vars(type, lrg);
+    font-size: font-size(lrg);
 }
 
 li,
 p {
-	font-size: vars(type, med);
+	font-size: font-size(med);
 }
 
 h1,
@@ -55,7 +53,7 @@ ol {
 }
 
 .u-btn {
-	font-size: vars(type, med);
+	font-size: font-size(med);
 
 	display: inline-block;
 	margin-top: size(2);

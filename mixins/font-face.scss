@@ -1,4 +1,4 @@
-@use '../mixins/string-replace' as *;
+@use 'string-replace' as *;
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:string';
@@ -14,7 +14,7 @@
 	$src: null;
 	$extensions: (
 		eot: '?',
-		svg: '#' + str-replace($font-family, ' ', '_')
+		svg: '#' + string-replace($font-family, ' ', '_')
 	);
 	$formats: (
 		otf: 'opentype',

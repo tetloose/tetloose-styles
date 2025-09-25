@@ -1,0 +1,5 @@
+@use '../reset/form' as *;
+
+.u-form input[type=datetime-local] {
+	@extend %form-reset;
+}

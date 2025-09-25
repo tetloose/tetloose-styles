@@ -1,7 +1,0 @@
-@use '../../settings/typography' as *;
-
-.u-form label {
-	display: inline-block;
-
-	@extend %type-label;
-}

@@ -1,5 +1,0 @@
-@use '../settings/variables' as *;
-
-@function spacing($size) {
-	@return calc(vars(layout, spacing) * $size);
-}

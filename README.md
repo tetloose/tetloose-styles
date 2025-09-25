@@ -22,7 +22,6 @@ CSS methodologies based on BEM + SMACSS with Utility Classes.
 - Mixins
 - Colors Global
 - Font Sizes
-- Typography Sizes
 
 ## Utils (optional)
 

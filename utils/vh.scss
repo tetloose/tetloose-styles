@@ -1,17 +1,17 @@
-@use '../settings/variables' as *;
+@use '../settings' as *;
 
-.u-vh-fullscreen {
-	min-height: vars(vh, fullscreen);
+.u-height-fullscreen {
+	min-height: height(fullscreen);
 }
 
-.u-vh-half {
-	min-height: vars(vh, half);
+.u-height-half {
+	min-height: height(half);
 }
 
-.u-vh-1-third {
-	min-height: vars(vh, one-third);
+.u-height-1-third {
+	min-height: height(one-third);
 }
 
-.u-vh-2-third {
-	min-height: vars(vh, two-third);
+.u-height-2-third {
+	min-height: height(two-third);
 }
