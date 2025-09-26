@@ -2,19 +2,81 @@
 
 .u-btn {
 	position: relative;
-	background-color: transparent;
+	overflow: hidden;
 	border-style: solid;
-	border-color: transparent;
+	border-radius: 0;
 	text-align: center;
 	text-decoration: none;
+	appearance: none;
 
-	@include sizing('border-radius', radius(sml));
+	@include sizing('border-width', size(.25));
 	@include sizing('padding', [size(2.4), size(8)]);
-	@include sizing('border-width', size(.5));
+	@include user-select(disable);
 	@extend %f-btn;
 
+	&.is-inline {
+		display: inline-flex;
+	}
+
+	&.is-block {
+		display: flex;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		transform: translateX(-100%);
+
+		@include sizing('width', size(2));
+		@include transition('all');
+	}
+
 	@include mq-hover {
-		@include transition('color, background-color, border, opacity');
+		@include transition('background-color');
+
+		&:focus,
+		&:hover {
+			&::before {
+				transform: translateX(0);
+			}
+		}
+	}
+
+	&.is-light {
+		background-color: $light;
+		border-color: $dark;
+		color: $dark;
+
+		&::before {
+			background-color: $dark;
+		}
+
+		@include mq-hover {
+			&:focus,
+			&:hover {
+				background-color: tint($light, 10%);
+			}
+		}
+	}
+
+	&.is-dark {
+		background-color: $dark;
+		border-color: $light;
+		color: $light;
+
+		&::before {
+			background-color: $light;
+		}
+
+		@include mq-hover {
+			&:focus,
+			&:hover {
+				background-color: shade($dark, 10%);
+			}
+		}
 	}
 
 	&[disabled] {

@@ -7,7 +7,7 @@
 	width: 100%;
 	overflow: hidden;
 
-	@include user-select(disable);
+	@include disable(disable);
 
 	&.is-absolute {
 		position: absolute;

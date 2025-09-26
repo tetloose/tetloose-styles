@@ -1,15 +1,82 @@
 @use '../settings' as *;
-@use '../form' as *;
 
 .u-form {
 	$form: &;
+
+	position: relative;
 
 	> *:first-child {
 		margin-top: 0;
 	}
 
+	label {
+		display: block;
+
+		@include sizing('margin-top', size(2));
+		@extend %f-label;
+	}
+
+	textarea,
+	input:not([type=submit], [type=reset], [type=radio], [type=checkbox]) {
+		display: block;
+		width: 100%;
+		border-style: solid;
+		border-color: $dark;
+		appearance: none;
+
+		@extend %f-paragraph;
+		@include sizing('border-width', size(.5));
+		@include sizing('padding', size(2));
+		@include sizing('margin-top', size(2));
+
+		&::placeholder {
+			opacity: .8;
+
+			@include transition('color');
+		}
+
+		&[disabled] {
+			opacity: .4;
+
+			@include disable(disable);
+		}
+
+		&.is-hidden {
+			display: none;
+		}
+
+		&.has-error {
+			border-color: $red;
+		}
+
+		&:focus {
+			border-color: shade($dark, 60%);
+		}
+
+		@include mq-hover {
+			@include transition('color, background-color, border-color');
+
+			&:hover {
+				border-color: shade($dark, 60%);
+			}
+		}
+	}
+
+	textarea {
+		overflow: auto;
+		resize: vertical;
+
+		@include sizing('min-height', size(100));
+	}
+
+	input[type=submit],
+	input[type=reset],
+	.u-btn {
+		@include sizing('margin-top', size(4));
+	}
+
 	.wpcf7 {
-		@include sizing('margin-top', size(-4));
+		@include sizing('margin-top', size(-2));
 
 		.wpcf7-acceptance {
 			display: block;
@@ -25,54 +92,18 @@
 			@extend %f-small;
 			@include sizing('padding', [size(4), size(0), size(0)]);
 		}
-	}
 
-	&__field {
-		@include sizing('margin-top', size(4));
-
-		input {
-			@include sizing('margin-top', size(2));
+		.wpcf7-not-valid-tip {
+			@extend %f-small;
+			@include sizing('padding', [size(2), size(0), size(0)]);
 		}
 
-		&:first-of-type {
-			margin-top: 0;
-
-			input {
-				margin-top: 0;
-			}
-		}
-	}
-
-	.wpcf7-not-valid-tip,
-	&__validation {
-		display: block;
-
-		@extend %f-small;
-		@include sizing('padding', [size(2), size(0), size(0)]);
-	}
-
-	&__options {
-		@include sizing('margin-top', size(4));
-
-		label {
-			position: relative;
-
-			@include sizing('padding-right', size(6));
-		}
-
-		input {
+		.wpcf7-spinner {
 			position: absolute;
 			top: 50%;
-			right: 0;
-			transform: translateY(-50%) scale(1.1);
-
-			@include mq-hover {
-				@include transition('all');
-			}
-
-			&:focus {
-				transform: translateY(-50%) scale(1.3);
-			}
+			left: 50%;
+			margin: 0;
+			transform: translate(-50%, -50%);
 		}
 	}
 }

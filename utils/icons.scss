@@ -12,28 +12,12 @@
 	@include font-smoothing;
 }
 
-.u-icon-news::before {
-	content: '\e90a';
-}
-
-.u-icon-prev::before {
-	content: '\e90b';
-}
-
-.u-icon-next::before {
-	content: '\e90c';
-}
-
-.u-icon-first::before {
-	content: '\e90d';
-}
-
-.u-icon-last::before {
-	content: '\e90e';
-}
-
-.u-icon-songkick::before {
+.u-icon-github::before {
 	content: '\e900';
+}
+
+.u-icon-x::before {
+	content: '\e90f';
 }
 
 .u-icon-youtube::before {
@@ -56,10 +40,6 @@
 	content: '\e905';
 }
 
-.u-icon-twitter::before {
-	content: '\e906';
-}
-
 .u-icon-vimeo::before {
 	content: '\e907';
 }
@@ -70,4 +50,24 @@
 
 .u-icon-facebook::before {
 	content: '\e909';
+}
+
+.u-icon-news::before {
+	content: '\e90a';
+}
+
+.u-icon-prev::before {
+	content: '\e90b';
+}
+
+.u-icon-next::before {
+	content: '\e90c';
+}
+
+.u-icon-first::before {
+	content: '\e90d';
+}
+
+.u-icon-last::before {
+	content: '\e90e';
 }
