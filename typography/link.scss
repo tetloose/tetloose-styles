@@ -1,8 +1,10 @@
 @use '../settings' as *;
 
-[class*=u-link-] a:not(.u-btn) {
-	display: inline-block;
+.u-content a:not(.u-btn),
+.u-link {
+	display: inline-flex;
 	position: relative;
+	color: $dark;
 	text-decoration-skip-ink: auto;
 
 	&::after {
@@ -12,6 +14,7 @@
 		bottom: 0;
 		z-index: z-index(hidden);
 		opacity: 0;
+		background-color: $dark;
 
 		@include sizing('left', size(-1));
 		@include sizing('right', size(-1));
@@ -19,15 +22,23 @@
 		@include hardware(true);
 	}
 
-	&:focus::after {
-		opacity: 1;
+	&:focus {
+		color: $light;
+
+		&::after {
+			opacity: 1;
+		}
 	}
 
 	@include mq-hover {
 		@include transition;
 
-		&:hover::after {
-			opacity: 1;
+		&:hover {
+			color: $light;
+
+			&::after {
+				opacity: 1;
+			}
 		}
 	}
 }
