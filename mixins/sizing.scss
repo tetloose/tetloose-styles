@@ -1,62 +1,54 @@
+@use '../settings/variables' as *;
+@use 'media-query' as *;
+@use 'strip-unit' as *;
 @use 'sass:list';
-@use 'sass:string';
+@use 'sass:meta';
 
-// calculate size based on layout spacing
-@function size($size) {
-	@return calc(vars(layout, spacing) * $size);
-}
+$min: breakpoint(viewport-width(breakpoint-min));
+$max: breakpoint(viewport-width(breakpoint-max));
+$context: calc(strip-unit($max) * .01 * 1px);
 
-// Usage
-// e.g. padding-top: 42px;
-// 42 / vars(layout, spacing) -> 4px = 42 / 4 = 10.5
-// padding-top: size(10.5)
-
-@mixin sizing(
-	$css-property,
-	$values) {
-	@if type-of($values) == list {
-		@include mq($vw-min, max-width) {
+@mixin sizing($css-property, $values) {
+	@if meta.type-of($values) == 'list' {
+		@include mq($min, max-width) {
 			$result: ();
 
 			@each $value in $values {
-				$context: calc($value / $vw-context * $vw-adjustment-min);
-				$result: list.append($result, $context);
+				$result: list.append(
+					$result,
+					calc(#{ $value } / #{ $context } * #{ viewport-width(adjustment-min) })
+				);
 			}
 
-			#{$css-property}: string.unquote('#{join($result, '')}');
+			#{$css-property}: $result;
 		}
 
-		@include mq($vw-min) {
+		@include mq($min) {
 			$result: ();
 
 			@each $value in $values {
-				$context: calc($value / $vw-context * $vw-adjustment-max);
-				$result: list.append($result, $context);
+				$result: list.append(
+					$result,
+					calc(#{ $value } / #{ $context } * #{ viewport-width(adjustment-max) })
+				);
 			}
 
-			#{$css-property}: string.unquote('#{join($result, '')}');
+			#{$css-property}: $result;
 		}
 
-		@include mq($vw-max) {
-			$result: ();
-
-			@each $value in $values {
-				$context: $value;
-				$result: list.append($result, $context);
-			}
-
-			#{$css-property}: string.unquote('#{join($result, '')}');
+		@include mq($max) {
+			#{$css-property}: $values;
 		}
 	} @else {
-		@include mq($vw-min, max-width) {
-			#{$css-property}: calc($values / $vw-context * $vw-adjustment-min);
+		@include mq($min, max-width) {
+			#{$css-property}: calc(#{ $values } / #{ $context } * #{ viewport-width(adjustment-min) });
 		}
 
-		@include mq($vw-min) {
-			#{$css-property}: calc($values / $vw-context * $vw-adjustment-max);
+		@include mq($min) {
+			#{$css-property}: calc(#{ $values } / #{ $context } * #{ viewport-width(adjustment-max) });
 		}
 
-		@include mq($vw-max) {
+		@include mq($max) {
 			#{$css-property}: $values;
 		}
 	}

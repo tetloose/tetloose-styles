@@ -1,3 +1,5 @@
+@use '../settings' as *;
+
 .u-media {
 	$iframe: &;
 
@@ -7,8 +9,8 @@
 
 	&.has-loaded #{$iframe}__iframe {
 		animation-name: kf-fade-in;
-		animation-duration: vars(transition-duration, med);
-		animation-timing-function: vars(transition-timing, med);
+		animation-duration: transition-duration(med);
+		animation-timing-function: transition-timing(med);
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
 	}

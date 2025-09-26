@@ -1,14 +1,20 @@
+@use '../settings' as *;
+
 html {
-	min-height: vars(vh, fullscreen);
+	min-height: height(fullscreen);
 	visibility: visible;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	line-height: 1.5;
 	text-rendering: optimizespeed;
 
+	@include font-smoothing;
+	@include selection;
+	@include scrollbar;
 	@extend %f-body;
 	@extend %f-body-regular;
-	@include font-smoothing;
+	@extend %c-dark;
+	@extend %bg-light;
 
 	&.no-scroll {
 		position: relative;
@@ -18,8 +24,4 @@ html {
 			overflow: hidden;
 		}
 	}
-}
-
-body {
-	@include sizing('padding-top', size(30));
 }

@@ -1,3 +1,5 @@
+@use '../settings' as *;
+
 .u-figure {
 	$figure: &;
 
@@ -5,9 +7,11 @@
 	width: 100%;
 	overflow: hidden;
 
+	@include disable(disable);
+
 	&.is-absolute {
 		position: absolute;
-		z-index: 0;
+		z-index: z-index(zero);
 	}
 
 	&.is-cover #{$figure}__img {
@@ -61,8 +65,8 @@
 			left: 0;
 			opacity: 0;
 			animation-name: kf-fade-in;
-			animation-duration: vars(transition-duration, med);
-			animation-timing-function: vars(transition-timing, med);
+			animation-duration: transition-duration(med);
+			animation-timing-function: transition-timing(med);
 			animation-iteration-count: 1;
 			animation-fill-mode: forwards;
 		}

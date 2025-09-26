@@ -1,0 +1,33 @@
+@use '../settings' as *;
+
+[class*=u-link-] a:not(.u-btn) {
+	display: inline-block;
+	position: relative;
+	text-decoration-skip-ink: auto;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: z-index(hidden);
+		opacity: 0;
+
+		@include sizing('left', size(-1));
+		@include sizing('right', size(-1));
+		@include transition('all');
+		@include hardware(true);
+	}
+
+	&:focus::after {
+		opacity: 1;
+	}
+
+	@include mq-hover {
+		@include transition;
+
+		&:hover::after {
+			opacity: 1;
+		}
+	}
+}

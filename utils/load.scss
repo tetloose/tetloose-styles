@@ -1,11 +1,13 @@
+@use '../settings' as *;
+
 .u-load-hide {
 	opacity: 0;
 }
 
 .u-load-fade-in {
 	animation-name: kf-fade-in;
-	animation-duration: vars(transition-duration, med);
-	animation-timing-function: vars(transition-timing, med);
+	animation-duration: transition-duration(med);
+	animation-timing-function: transition-timing(med);
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }

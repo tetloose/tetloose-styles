@@ -1,4 +1,4 @@
-@import '../scss/settings';
+@use './settings' as *;
 
 html,
 body {
@@ -11,32 +11,32 @@ body {
 }
 
 h1 {
-    font-size: vars(type, xxxxxlrg);
+    font-size: font-size(xxxxxlrg);
 }
 
 h2 {
-	font-size: vars(type, xxxxlrg);
+	font-size: font-size(xxxxlrg);
 }
 
 h3 {
-	font-size: vars(type, xxxlrg);
+	font-size: font-size(xxxlrg);
 }
 
 h4 {
-	font-size: vars(type, xxlrg);
+	font-size: font-size(xxlrg);
 }
 
 h5 {
-	font-size: vars(type, xlrg);
+	font-size: font-size(xlrg);
 }
 
 h6 {
-    font-size: vars(type, lrg);
+    font-size: font-size(lrg);
 }
 
 li,
 p {
-	font-size: vars(type, med);
+	font-size: font-size(med);
 }
 
 h1,
@@ -53,17 +53,29 @@ ol {
 }
 
 .u-btn {
-	font-size: vars(type, med);
-
-	display: inline-block;
-	margin-top: size(2);
-	padding: size(2) size(8);
-	background-color: $light;
-	border-width: size(.5);
+	position: relative;
+	overflow: hidden;
+	background-color: transparent;
 	border-style: solid;
-	border-color: $dark;
-	color: $dark;
+	border-color: transparent;
+	text-align: center;
 	text-decoration: none;
+    border-radius: 0;
+    padding: size(2.4) size(8);
+
+	@extend %f-btn;
+
+	&.is-light {
+		background-color: $light;
+		border-color: shade($light, 30%);
+		color: $dark;
+	}
+
+	&.is-dark {
+		background-color: $dark;
+		border-color: tint($dark, 30%);
+		color: $light;
+	}
 }
 
 iframe {
