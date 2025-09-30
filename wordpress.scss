@@ -53,27 +53,31 @@ ol {
 }
 
 .u-btn {
+	display: inline-flex;
 	position: relative;
+	align-items: center;
+	justify-content: center;
 	overflow: hidden;
-	background-color: transparent;
+	background-color: $light;
 	border-style: solid;
-	border-color: transparent;
-	text-align: center;
+	border-color: $dark;
+	border-radius: 0;
+	color: $dark;
 	text-decoration: none;
-    border-radius: 0;
+	appearance: none;
     padding: size(2.4) size(8);
 
 	@extend %f-btn;
 
 	&.is-light {
 		background-color: $light;
-		border-color: shade($light, 30%);
+		border-color: $dark;
 		color: $dark;
 	}
 
 	&.is-dark {
 		background-color: $dark;
-		border-color: tint($dark, 30%);
+		border-color: $light;
 		color: $light;
 	}
 }

@@ -12,6 +12,18 @@
 	@include font-smoothing;
 }
 
+.u-icon-diary::before {
+	content: '\e906';
+}
+
+.u-icon-projects::before {
+	content: '\e90a';
+}
+
+.u-icon-music::before {
+	content: '\e910';
+}
+
 .u-icon-github::before {
 	content: '\e900';
 }
@@ -50,10 +62,6 @@
 
 .u-icon-facebook::before {
 	content: '\e909';
-}
-
-.u-icon-news::before {
-	content: '\e90a';
 }
 
 .u-icon-prev::before {

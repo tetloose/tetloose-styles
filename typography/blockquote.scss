@@ -4,26 +4,11 @@
 .u-blockquote {
 	position: relative;
 
-	@include sizing('padding-left', size(4));
+	@extend %f-italic;
 
-	footer {
-		@extend %f-small;
-		@extend %f-body-bold;
-		@include sizing('padding-top', size(.8));
-	}
-
-	> *:first-child {
-		margin-top: 0;
-		padding-top: 0;
-	}
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-
-		@include sizing('width', size(1));
+	&::before,
+	&::after {
+		content: '"';
+		display: inline;
 	}
 }

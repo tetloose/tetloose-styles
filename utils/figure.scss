@@ -11,7 +11,7 @@
 
 	&.is-absolute {
 		position: absolute;
-		z-index: z-index(zero);
+		z-index: z-index(hidden);
 	}
 
 	&.is-cover #{$figure}__img {

@@ -3,6 +3,23 @@
 .u-form {
 	$form: &;
 
+	@include color-scheme(
+		(
+			--form-color: $dark,
+			--form-placeholder: color($light, $dark, 20%),
+			--form-border: color($light, $dark, 20%),
+			--form-border-active: color($dark, $light, 20%),
+			--form-error: color($red, $dark, 20%)
+		),
+		(
+			--form-color: $light,
+			--form-placeholder: color($light, $dark, 20%),
+			--form-border: color($dark, $light, 20%),
+			--form-border-active: color($light, $dark, 20%),
+			--form-error: color($red, $light, 50%)
+		)
+	);
+
 	position: relative;
 
 	> *:first-child {
@@ -11,8 +28,9 @@
 
 	label {
 		display: block;
+		position: relative;
 
-		@include sizing('margin-top', size(2));
+		@include sizing('margin-top', size(4));
 		@extend %f-label;
 	}
 
@@ -21,16 +39,18 @@
 		display: block;
 		width: 100%;
 		border-style: solid;
-		border-color: $dark;
+		border-color: var(--form-border);
+		color: var(--form-color);
 		appearance: none;
 
 		@extend %f-paragraph;
 		@include sizing('border-width', size(.5));
-		@include sizing('padding', size(2));
-		@include sizing('margin-top', size(2));
+		@include sizing('padding', size(4));
+		@include sizing('margin-top', size(3));
 
 		&::placeholder {
 			opacity: .8;
+			color: var(--form-placeholder);
 
 			@include transition('color');
 		}
@@ -45,19 +65,20 @@
 			display: none;
 		}
 
+		&.wpcf7-not-valid,
 		&.has-error {
-			border-color: $red;
+			border-color: var(--form-error);
 		}
 
 		&:focus {
-			border-color: shade($dark, 60%);
+			border-color: var(--form-border-active);
 		}
 
 		@include mq-hover {
 			@include transition('color, background-color, border-color');
 
 			&:hover {
-				border-color: shade($dark, 60%);
+				border-color: var(--form-border-active);
 			}
 		}
 	}
@@ -72,11 +93,11 @@
 	input[type=submit],
 	input[type=reset],
 	.u-btn {
-		@include sizing('margin-top', size(4));
+		@include sizing('margin-top', size(8));
 	}
 
 	.wpcf7 {
-		@include sizing('margin-top', size(-2));
+		@include sizing('margin-top', size(-4));
 
 		.wpcf7-acceptance {
 			display: block;
@@ -85,15 +106,15 @@
 		}
 
 		.wpcf7-response-output {
-			margin: 0;
-			border-width: 0;
-			text-align: center;
-
-			@extend %f-small;
-			@include sizing('padding', [size(4), size(0), size(0)]);
+			display: none;
 		}
 
 		.wpcf7-not-valid-tip {
+			position: absolute;
+			top: 100%;
+			right: 0;
+			color: var(--form-error);
+
 			@extend %f-small;
 			@include sizing('padding', [size(2), size(0), size(0)]);
 		}

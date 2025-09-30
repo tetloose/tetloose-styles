@@ -41,3 +41,9 @@
 		}
 	}
 }
+
+@mixin mq-reduce-motion() {
+	@media (prefers-reduced-motion: reduce) {
+		@content;
+	}
+}

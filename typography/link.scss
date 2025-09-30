@@ -2,9 +2,22 @@
 
 .u-content a:not(.u-btn),
 .u-link {
+	@include color-scheme(
+		(
+			--a-color: $dark,
+			--a-after-bg: $dark,
+			--a-active: $light
+		),
+		(
+			--a-color: $light,
+			--a-after-bg: $light,
+			--a-active: $dark
+		)
+	);
+
 	display: inline-flex;
 	position: relative;
-	color: $dark;
+	color: var(--a-color);
 	text-decoration-skip-ink: auto;
 
 	&::after {
@@ -14,7 +27,7 @@
 		bottom: 0;
 		z-index: z-index(hidden);
 		opacity: 0;
-		background-color: $dark;
+		background-color: var(--a-after-bg);
 
 		@include sizing('left', size(-1));
 		@include sizing('right', size(-1));
@@ -23,7 +36,7 @@
 	}
 
 	&:focus {
-		color: $light;
+		color: var(--a-active);
 
 		&::after {
 			opacity: 1;
@@ -34,7 +47,7 @@
 		@include transition;
 
 		&:hover {
-			color: $light;
+			color: var(--a-active);
 
 			&::after {
 				opacity: 1;

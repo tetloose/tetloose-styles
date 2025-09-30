@@ -1,81 +1,55 @@
 @use '../settings' as *;
 
+.u-form input[type=submit],
+.u-form input[type=reset],
 .u-btn {
+	@include color-scheme(
+		(
+			--btn-bg: $light,
+			--btn-color: $dark,
+			--btn-border: $dark,
+			--btn-bg-hover: color($light, $dark, 20%)
+		),
+		(
+			--btn-bg: $dark,
+			--btn-color: $light,
+			--btn-border: $light,
+			--btn-bg-hover: color($dark, $light, 30%)
+		)
+	);
+
+	display: inline-flex;
 	position: relative;
+	align-items: center;
+	justify-content: center;
 	overflow: hidden;
+	background-color: var(--btn-bg);
 	border-style: solid;
+	border-color: var(--btn-border);
 	border-radius: 0;
-	text-align: center;
+	color: var(--btn-color);
 	text-decoration: none;
 	appearance: none;
 
 	@include sizing('border-width', size(.25));
-	@include sizing('padding', [size(2.4), size(8)]);
+	@include sizing('padding', [size(3), size(6)]);
 	@include user-select(disable);
 	@extend %f-btn;
-
-	&.is-inline {
-		display: inline-flex;
-	}
+	@extend %f-uppercase;
 
 	&.is-block {
-		display: flex;
+		display: block;
 	}
 
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		transform: translateX(-100%);
-
-		@include sizing('width', size(2));
-		@include transition('all');
+	&:focus {
+		background-color: var(--btn-bg-hover);
 	}
 
 	@include mq-hover {
-		@include transition('background-color');
+		@include transition('background-color, border-color');
 
-		&:focus,
 		&:hover {
-			&::before {
-				transform: translateX(0);
-			}
-		}
-	}
-
-	&.is-light {
-		background-color: $light;
-		border-color: $dark;
-		color: $dark;
-
-		&::before {
-			background-color: $dark;
-		}
-
-		@include mq-hover {
-			&:focus,
-			&:hover {
-				background-color: tint($light, 10%);
-			}
-		}
-	}
-
-	&.is-dark {
-		background-color: $dark;
-		border-color: $light;
-		color: $light;
-
-		&::before {
-			background-color: $light;
-		}
-
-		@include mq-hover {
-			&:focus,
-			&:hover {
-				background-color: shade($dark, 10%);
-			}
+			background-color: var(--btn-bg-hover);
 		}
 	}
 
@@ -83,5 +57,19 @@
 		opacity: .4;
 
 		@include disable(disable);
+	}
+
+	&.is-light {
+		--btn-bg: $light;
+		--btn-color: $dark;
+		--btn-border: $dark;
+		--btn-bg-hover: color($light, $dark, 20%);
+	}
+
+	&.is-dark {
+		--btn-bg: $dark;
+		--btn-color: $light;
+		--btn-border: $light;
+		--btn-bg-hover: color($dark, $light, 30%);
 	}
 }

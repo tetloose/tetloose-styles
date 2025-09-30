@@ -12,6 +12,10 @@
 
 	@include sizing('max-width', layout(max-width));
 
+	&.full-width {
+		@include sizing('max-width', layout(full-width));
+	}
+
 	&.align-flex-start {
 		align-items: flex-start;
 	}
@@ -24,36 +28,8 @@
 		align-items: flex-end;
 	}
 
-	&.align-stretch {
-		align-items: stretch;
-	}
-
-	&.align-baseline {
-		align-items: baseline;
-	}
-
-	@each $breakpoint, $size in map.get($variables, breakpoints) {
-		@include mq($size) {
-			&.#{$breakpoint}-align-flex-start {
-				align-items: flex-start;
-			}
-
-			&.#{$breakpoint}-align-center {
-				align-items: center;
-			}
-
-			&.#{$breakpoint}-align-flex-end {
-				align-items: flex-end;
-			}
-
-			&.#{$breakpoint}-align-stretch {
-				align-items: stretch;
-			}
-
-			&.#{$breakpoint}-align-baseline {
-				align-items: baseline;
-			}
-		}
+	&.direction-row-reverse {
+		flex-direction: row-reverse;
 	}
 
 	&.justify-flex-start {
@@ -68,94 +44,45 @@
 		justify-content: flex-end;
 	}
 
-	&.justify-space-between {
-		justify-content: space-between;
-	}
-
-	&.justify-space-around {
-		justify-content: space-around;
-	}
-
-	&.justify-space-evenly {
-		justify-content: space-evenly;
-	}
-
-	@each $breakpoint, $size in map.get($variables, breakpoints) {
-		@include mq($size) {
-			&.#{$breakpoint}-justify-flex-start {
-				justify-content: flex-start;
-			}
-
-			&.#{$breakpoint}-justify-center {
-				justify-content: center;
-			}
-
-			&.#{$breakpoint}-justify-flex-end {
-				justify-content: flex-end;
-			}
-
-			&.#{$breakpoint}-justify-space-between {
-				justify-content: space-between;
-			}
-
-			&.#{$breakpoint}-justify-space-around {
-				justify-content: space-around;
-			}
-
-			&.#{$breakpoint}-justify-space-evenly {
-				justify-content: space-evenly;
-			}
-		}
-	}
-
-	&.direction-row {
-		flex-direction: row;
-	}
-
-	&.direction-row-reverse {
-		flex-direction: row-reverse;
-	}
-
-	&.direction-column {
-		flex-direction: column;
-	}
-
-	&.direction-column-reverse {
-		flex-direction: column-reverse;
-	}
-
-	@each $breakpoint, $size in map.get($variables, breakpoints) {
-		@include mq($size) {
-			&.#{$breakpoint}-direction-row {
-				flex-direction: row;
-			}
-
-			&.#{$breakpoint}-direction-row-reverse {
-				flex-direction: row-reverse;
-			}
-
-			&.#{$breakpoint}-direction-column {
-				flex-direction: column;
-			}
-
-			&.#{$breakpoint}-direction-column-reverse {
-				flex-direction: column-reverse;
-			}
-		}
-	}
-
-	&.full-width {
-		max-width: 100%;
-	}
-
 	&__col {
+		display: inline-flex;
+		flex-direction: column;
+		width: 100%;
+
 		@include sizing('padding-right', size(layout(gutter)));
 		@include sizing('padding-left', size(layout(gutter)));
 
-		width: 100%;
+		&.align-flex-start {
+			align-items: flex-start;
+		}
+
+		&.align-center {
+			align-items: center;
+		}
+
+		&.align-flex-end {
+			align-items: flex-end;
+		}
+
+		&.justify-flex-start {
+			justify-content: flex-start;
+		}
+
+		&.justify-center {
+			justify-content: center;
+		}
+
+		&.justify-flex-end {
+			justify-content: flex-end;
+		}
 
 		&.width-auto {
 			width: auto;
+		}
+
+		&.no-gutter {
+			padding-right: 0;
+			padding-left: 0;
 		}
 
 		@for $i from 1 through layout(columns) {
@@ -165,10 +92,6 @@
 		}
 
 		@include mq(breakpoint(sml)) {
-			&.sml-width-auto {
-				width: auto;
-			}
-
 			@for $i from 1 through layout(columns) {
 				&.sml-width-#{$i} {
 					width: column-width(layout(columns), #{$i});
@@ -177,10 +100,6 @@
 		}
 
 		@include mq(breakpoint(med)) {
-			&.med-width-auto {
-				width: auto;
-			}
-
 			@for $i from 1 through layout(columns) {
 				&.med-width-#{$i} {
 					width: column-width(layout(columns), #{$i});
@@ -189,10 +108,6 @@
 		}
 
 		@include mq(breakpoint(lrg)) {
-			&.lrg-width-auto {
-				width: auto;
-			}
-
 			@for $i from 1 through layout(columns) {
 				&.lrg-width-#{$i} {
 					width: column-width(layout(columns), #{$i});
@@ -201,10 +116,6 @@
 		}
 
 		@include mq(breakpoint(xlrg)) {
-			&.xlrg-width-auto {
-				width: auto;
-			}
-
 			@for $i from 1 through layout(columns) {
 				&.xlrg-width-#{$i} {
 					width: column-width(layout(columns), #{$i});
@@ -213,33 +124,11 @@
 		}
 
 		@include mq(breakpoint(xxlrg)) {
-			&.xxlrg-width-auto {
-				width: auto;
-			}
-
 			@for $i from 1 through layout(columns) {
 				&.xxlrg-width-#{$i} {
 					width: column-width(layout(columns), #{$i});
 				}
 			}
-		}
-
-		&.is-relative {
-			position: relative;
-		}
-
-		&.no-overflow {
-			overflow: hidden;
-		}
-
-		&.is-centered {
-			margin-right: auto;
-			margin-left: auto;
-		}
-
-		&.no-gutter {
-			padding-right: 0;
-			padding-left: 0;
 		}
 	}
 

@@ -156,3 +156,7 @@
 %f-icon-xxxlrg {
 	@include sizing('font-size', font-size(xxxlrg));
 }
+
+%f-icon-xxxxxlrg {
+	@include sizing('font-size', font-size(xxxxxlrg));
+}

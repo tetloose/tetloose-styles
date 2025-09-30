@@ -1,0 +1,43 @@
+@use '../settings' as *;
+
+.u-text-light {
+	@include color-scheme(
+		(
+			--selection-bg: $light,
+			--selection-color: $dark,
+			--text: $dark
+		),
+		(
+			--selection-bg: $dark,
+			--selection-color: $light,
+			--text: $light
+		)
+	);
+	@include selection(
+		var(--selection-bg),
+		var(--selection-color)
+	);
+
+	color: var(--text);
+}
+
+.u-text-dark {
+	@include color-scheme(
+		(
+			--selection-bg: $light,
+			--selection-color: $dark,
+			--text: $light
+		),
+		(
+			--selection-bg: $dark,
+			--selection-color: $light,
+			--text: $dark
+		)
+	);
+	@include selection(
+		var(--selection-bg),
+		var(--selection-color)
+	);
+
+	color: var(--text);
+}

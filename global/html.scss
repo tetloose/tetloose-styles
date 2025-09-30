@@ -1,20 +1,46 @@
 @use '../settings' as *;
 
 html {
+	@include color-scheme(
+		(
+			--selection-bg: $dark,
+			--selection-color: $light,
+			--scrollbar-foreground: $dark,
+			--scrollbar-background: $light,
+			--background: $light,
+			--color: $dark
+		),
+		(
+			--selection-bg: $light,
+			--selection-color: $dark,
+			--scrollbar-foreground: $light,
+			--scrollbar-background: $dark,
+			--background: $dark,
+			--color: $light
+		)
+	);
+
 	min-height: height(fullscreen);
 	visibility: visible;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	line-height: 1.5;
+	background-color: var(--background);
+	color: var(--color);
+	line-height: 1.6;
 	text-rendering: optimizespeed;
+	scroll-behavior: smooth;
 
 	@include font-smoothing;
-	@include selection;
-	@include scrollbar;
+	@include selection(
+		var(--selection-bg),
+		var(--selection-color)
+	);
+	@include scrollbar(
+		var(--scrollbar-foreground),
+		var(--scrollbar-background)
+	);
 	@extend %f-body;
 	@extend %f-body-regular;
-	@extend %c-dark;
-	@extend %bg-light;
 
 	&.no-scroll {
 		position: relative;
