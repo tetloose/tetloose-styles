@@ -52,30 +52,6 @@
 		@include sizing('padding-right', size(layout(gutter)));
 		@include sizing('padding-left', size(layout(gutter)));
 
-		&.align-flex-start {
-			align-items: flex-start;
-		}
-
-		&.align-center {
-			align-items: center;
-		}
-
-		&.align-flex-end {
-			align-items: flex-end;
-		}
-
-		&.justify-flex-start {
-			justify-content: flex-start;
-		}
-
-		&.justify-center {
-			justify-content: center;
-		}
-
-		&.justify-flex-end {
-			justify-content: flex-end;
-		}
-
 		&.width-auto {
 			width: auto;
 		}
