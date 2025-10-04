@@ -37,6 +37,10 @@
 		}
 	}
 
+	ol {
+		@include sizing('padding-left', size(3));
+	}
+
 	> *:first-child {
 		margin-top: 0;
 		padding-top: 0;
